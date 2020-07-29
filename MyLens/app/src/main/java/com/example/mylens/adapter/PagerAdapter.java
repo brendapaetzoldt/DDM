@@ -1,9 +1,13 @@
-package com.example.mylens;
+package com.example.mylens.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.example.mylens.fragments.CadastroFragment;
+import com.example.mylens.fragments.HistoricoFragment;
+import com.example.mylens.fragments.HomeFragment;
 
 public class PagerAdapter extends FragmentPagerAdapter {
 
