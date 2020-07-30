@@ -72,4 +72,17 @@ public class Lente implements Serializable {
     public void setMotivoTroca(String motivoTroca) {
         this.motivoTroca = motivoTroca;
     }
+
+    @Override
+    public String toString() {
+        return "Lente{" +
+                "id=" + id +
+                ", marca='" + marca + '\'' +
+                ", grauOD=" + grauOD +
+                ", grauOE=" + grauOE +
+                ", diasValidade=" + diasValidade +
+                ", diasDuracao=" + diasDuracao +
+                ", motivoTroca='" + motivoTroca + '\'' +
+                '}';
+    }
 }

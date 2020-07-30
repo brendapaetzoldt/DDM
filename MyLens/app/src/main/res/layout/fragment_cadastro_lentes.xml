@@ -43,10 +43,12 @@
                 android:ems="10"
                 android:inputType="textPersonName" />
 
-            <Spinner
+            <EditText
                 android:id="@+id/sp_motivo_troca"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/edt_dias_validade"

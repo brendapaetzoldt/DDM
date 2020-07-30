@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tabBar);
         TabItem tabHome = findViewById(R.id.home);
-        TabItem tabCadastro = findViewById(R.id.cadastro);
+//        TabItem tabCadastro = findViewById(R.id.cadastro);
         TabItem tabHistorico = findViewById(R.id.historico);
 
         final ViewPager viewPager = findViewById(R.id.viewPager);

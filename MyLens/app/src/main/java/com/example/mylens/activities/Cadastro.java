@@ -14,16 +14,16 @@ import com.example.mylens.model.Lente;
 
 public class Cadastro extends AppCompatActivity {
 
-    private Button btn_cadastrar;
-    private EditText marca;
-    private EditText grauOD;
-    private EditText grauOE;
+    Button btn_cadastrar;
+    EditText marca;
+    EditText grauOD;
+    EditText grauOE;
     //informada pela caixa/fabricante
-    private EditText diasValidade;
+    EditText diasValidade;
     //quantos dias realmente durou
-    private EditText diasDuracao;
-    private EditText motivoTroca;
-    private LenteDAO dao;
+    EditText diasDuracao;
+    EditText motivoTroca;
+    LenteDAO dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +31,8 @@ public class Cadastro extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
 
         marca = findViewById(R.id.edt_marca);
-        grauOD = findViewById(R.id.edt_grauod);
         grauOE = findViewById(R.id.edt_grauoe);
+        grauOD = findViewById(R.id.edt_grauod);
         diasValidade = findViewById(R.id.edt_dias_validade);
         diasDuracao = findViewById(R.id.edt_dias_duracao);
         motivoTroca = findViewById(R.id.sp_motivo_troca);
