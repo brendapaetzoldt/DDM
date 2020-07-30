@@ -1,6 +1,9 @@
 package com.example.mylens.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -12,11 +15,22 @@ import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Cadastro.class);
+                startActivity(intent);
+            }
+        });
+
 
 //        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new HomeFragment()).commit();
 
@@ -25,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         TabItem tabCadastro = findViewById(R.id.cadastro);
         TabItem tabHistorico = findViewById(R.id.historico);
 
-         final ViewPager viewPager = findViewById(R.id.viewPager);
+        final ViewPager viewPager = findViewById(R.id.viewPager);
 
 
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(),

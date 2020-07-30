@@ -1,11 +1,13 @@
 package com.example.mylens.model;
 
-public class Lente {
+import java.io.Serializable;
 
+public class Lente implements Serializable {
 
+    private int id;
     private String marca;
-    private double grauOD;
-    private double grauOE;
+    private Double grauOD;
+    private Double grauOE;
     //informada pela caixa/fabricante
     private int diasValidade;
     //quantos dias realmente durou
@@ -13,6 +15,14 @@ public class Lente {
     private String motivoTroca;
 
     public Lente() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMarca() {
@@ -23,19 +33,19 @@ public class Lente {
         this.marca = marca;
     }
 
-    public double getGrauOD() {
+    public Double getGrauOD() {
         return grauOD;
     }
 
-    public void setGrauOD(double grauOD) {
+    public void setGrauOD(Double grauOD) {
         this.grauOD = grauOD;
     }
 
-    public double getGrauOE() {
+    public Double getGrauOE() {
         return grauOE;
     }
 
-    public void setGrauOE(double grauOE) {
+    public void setGrauOE(Double grauOE) {
         this.grauOE = grauOE;
     }
 
