@@ -45,8 +45,8 @@ public class Cadastro extends AppCompatActivity {
     public void salvar(View view) {
         Lente l = new Lente();
         l.setMarca(marca.getText().toString());
-        l.setGrauOE(Double.parseDouble(grauOE.getText().toString()));
-        l.setGrauOD(Double.parseDouble(grauOD.getText().toString()));
+        l.setGrauOE(grauOE.getText().toString());
+        l.setGrauOD(grauOD.getText().toString());
         l.setDiasValidade(Integer.parseInt(diasDuracao.getText().toString()));
         l.setDiasDuracao(Integer.parseInt(diasDuracao.getText().toString()));
         l.setMotivoTroca(motivoTroca.getText().toString());

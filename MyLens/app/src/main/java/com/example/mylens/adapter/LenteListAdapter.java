@@ -47,8 +47,8 @@ public class LenteListAdapter extends ArrayAdapter<Lente> {
         TextView txt_motivo = convertView.findViewById(R.id.txt_motivo);
 
         txt_marca.setText(lente.getMarca());
-        txt_oe.setText((String.valueOf(lente.getGrauOE())));
-        txt_od.setText((String.valueOf(lente.getGrauOD())));
+        txt_oe.setText(lente.getGrauOE());
+        txt_od.setText(lente.getGrauOD());
         txt_dval.setText((String.valueOf(lente.getDiasValidade())));
         txt_durou.setText((String.valueOf(lente.getDiasDuracao())));
         txt_motivo.setText(lente.getMotivoTroca());

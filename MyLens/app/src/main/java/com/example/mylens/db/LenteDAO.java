@@ -40,8 +40,8 @@ public class LenteDAO {
             Lente l = new Lente();
             l.setId(cursor.getInt(0));
             l.setMarca(cursor.getString(1));
-            l.setGrauOE(cursor.getDouble(2));
-            l.setGrauOD(cursor.getDouble(3));
+            l.setGrauOE(cursor.getString(2));
+            l.setGrauOD(cursor.getString(3));
             l.setDiasValidade(cursor.getInt(4));
             l.setDiasDuracao(cursor.getInt(5));
             l.setMotivoTroca(cursor.getString(6));
