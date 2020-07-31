@@ -27,7 +27,7 @@
             android:id="@+id/historico"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hostórico de Lentes" />
+            android:text="Histórico de Lentes" />
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
@@ -42,9 +42,9 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Cadastrar nova lente de contato"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
