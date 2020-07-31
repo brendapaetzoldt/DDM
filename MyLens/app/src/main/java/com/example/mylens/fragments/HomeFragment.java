@@ -23,9 +23,16 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.home, container, false);
+        View view = inflater.inflate(R.layout.home, container, false);
 
 
+        TextView txt_oe_dias_restantes = view.findViewById(R.id.txt_oe_dias_restantes);
+//        txt_oe_dias_restantes4.setText("333");
+
+        TextView txt_od_dias_restantes = view.findViewById(R.id.txt_od_dias_restantes);
+//        txt_od_dias_restantes.setText("333");
+
+        return view;
     }
 
     @Override
@@ -34,10 +41,8 @@ public class HomeFragment extends Fragment {
         ImageView imageView = view.findViewById(R.id.img_case);
         imageView.setImageResource(R.drawable.estojo);
 
-        TextView txt_oe_dias_restantes = view.findViewById(R.id.txt_oe_dias_restantes);
-//        txt_oe_dias_restantes4.setText("333");
 
-        TextView txt_od_dias_restantes = view.findViewById(R.id.txt_od_dias_restantes);
-//        txt_od_dias_restantes.setText("333");
     }
+
+
 }
