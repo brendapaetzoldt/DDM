@@ -41,6 +41,7 @@ public class HistoricoFragment extends Fragment {
 
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
         //registerForContextMenu(listView);
 
 //        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
