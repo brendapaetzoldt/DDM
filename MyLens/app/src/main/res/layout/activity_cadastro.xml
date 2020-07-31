@@ -57,7 +57,7 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="192dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
@@ -69,7 +69,7 @@
 
                         <EditText
                             android:id="@+id/edt_grauod"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName" />
@@ -120,7 +120,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:text="-" />
 
                 <TextView
                     android:id="@+id/textView11"
@@ -133,32 +134,44 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:text="-" />
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="390dp"
             android:layout_height="wrap_content"
-            android:gravity="bottom"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="10dp"
+            android:gravity="bottom|fill"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_cadastrar"
-                android:layout_width="210dp"
+                android:layout_width="130sp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="fill"
                 android:onClick="salvar"
                 android:text="Cadastrar" />
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="205dp"
+                android:layout_width="130sp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="fill"
                 android:text="Cancelar" />
         </LinearLayout>
 
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

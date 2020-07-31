@@ -1,5 +1,6 @@
 package com.example.mylens.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,7 @@ import com.example.mylens.model.Lente;
 
 public class Cadastro extends AppCompatActivity {
 
-    Button btn_cadastrar;
+    Button button_cancelar;
     EditText marca;
     EditText grauOD;
     EditText grauOE;
@@ -51,6 +52,13 @@ public class Cadastro extends AppCompatActivity {
         l.setDiasDuracao(Integer.parseInt(diasDuracao.getText().toString()));
         l.setMotivoTroca(motivoTroca.getText().toString());
         long id = dao.inserir(l);
-        Toast.makeText(this, "Sucesso" + id, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
     }
+
+    public void retorna(View view) {
+        Intent intent = new Intent(Cadastro.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

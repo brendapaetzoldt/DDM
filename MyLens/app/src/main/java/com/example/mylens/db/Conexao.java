@@ -18,7 +18,7 @@ public class Conexao extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table lente(id integer primary key autoincrement, " +
-                "marca varchar(30), grauOE Double, grauOD Double, diasValidade integer, diasDuracao integer, motivoTroca varchar (50))");
+                "marca varchar(30), grauOE varchar(5), grauOD varchar(5), diasValidade integer, diasDuracao integer, motivoTroca varchar (50))");
     }
 
     @Override

@@ -39,6 +39,7 @@ public class LenteListAdapter extends ArrayAdapter<Lente> {
 
         convertView = inflater.inflate(R.layout.list_lente_item, parent, false);
 
+
         TextView txt_marca = convertView.findViewById(R.id.txt_marca);
         TextView txt_oe = convertView.findViewById(R.id.txt_oe);
         TextView txt_od = convertView.findViewById(R.id.txt_od);
@@ -56,4 +57,6 @@ public class LenteListAdapter extends ArrayAdapter<Lente> {
 
         return convertView;
     }
+
+
 }

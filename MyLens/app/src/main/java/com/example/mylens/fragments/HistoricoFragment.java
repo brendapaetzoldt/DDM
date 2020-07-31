@@ -37,13 +37,21 @@ public class HistoricoFragment extends Fragment {
         lentes = dao.obterTodos();
         lentesFiltradas.addAll(lentes);
 
-
         LenteListAdapter adapter = new LenteListAdapter(getActivity().getApplicationContext(), 0, lentes);
 
         listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        //registerForContextMenu(listView);
 
+//        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+//                                           int pos, long id) {
+//
+//                return true;
+//            }
+//        });
 
-        registerForContextMenu(listView);
 
         return view;
 
