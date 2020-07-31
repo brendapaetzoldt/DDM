@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="fill"
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,6 +29,7 @@
                     android:id="@+id/txtName2"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="right"
                     android:text="Marca:"
                     android:textSize="18sp" />
 
@@ -33,7 +37,7 @@
                     android:id="@+id/txtId2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/thumbnail"
+                    android:gravity="right"
                     android:text="OE:"
                     android:textSize="18sp" />
 
@@ -42,13 +46,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/thumbnail"
+                    android:gravity="right"
                     android:text="OD:"
                     android:textSize="18sp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="80dp"
+                android:layout_width="138dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2sp"
                 android:orientation="vertical">
@@ -73,29 +78,37 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="104dp"
-                android:layout_height="73dp"
-                android:layout_marginTop="2sp"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="10dp"
+                android:gravity="fill">
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="43dp"
-                    android:gravity="center"
-                    android:text="Dias de Validade:"
-                    android:textSize="18sp" />
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center|fill"
+                    app:srcCompat="@android:drawable/ic_delete" />
 
-                <TextView
-                    android:id="@+id/txt_dval"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp" />
-
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center|fill"
+                    app:srcCompat="@android:drawable/ic_menu_add"
+                    tools:srcCompat="@android:drawable/ic_input_add" />
             </LinearLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="73dp"
+                android:layout_width="189dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="2sp"
                 android:orientation="vertical">
 
@@ -109,10 +122,32 @@
                 <TextView
                     android:id="@+id/txt_durou"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="29dp"
+                    android:gravity="center" />
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="221dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2sp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="43dp"
+                    android:gravity="center|fill"
+                    android:text="Dias de Validade:"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txt_dval"
+                    android:layout_width="match_parent"
+                    android:layout_height="29dp"
+                    android:gravity="center|fill"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
