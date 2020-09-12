@@ -91,14 +91,13 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="fill_horizontal|center_vertical"
-                    android:src="@drawable/delete" />
+                  />
 
                 <ImageButton
                     android:id="@+id/imageButton_usar"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_gravity="fill_horizontal|center_vertical"
-                    android:src="@drawable/add" />
+                    android:layout_gravity="fill_horizontal|center_vertical" />
             </LinearLayout>
 
         </LinearLayout>
