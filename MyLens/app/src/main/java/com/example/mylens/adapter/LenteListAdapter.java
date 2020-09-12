@@ -43,16 +43,16 @@ public class LenteListAdapter extends ArrayAdapter<Lente> {
         TextView txt_marca = convertView.findViewById(R.id.txt_marca);
         TextView txt_oe = convertView.findViewById(R.id.txt_oe);
         TextView txt_od = convertView.findViewById(R.id.txt_od);
-        TextView txt_dval = convertView.findViewById(R.id.txt_dval);
-        TextView txt_durou = convertView.findViewById(R.id.txt_durou);
-        TextView txt_motivo = convertView.findViewById(R.id.txt_motivo);
+//        TextView txt_dval = convertView.findViewById(R.id.txt_dval);
+//        TextView txt_durou = convertView.findViewById(R.id.txt_durou);
+//        TextView txt_motivo = convertView.findViewById(R.id.txt_motivo);
 
         txt_marca.setText(lente.getMarca());
         txt_oe.setText(lente.getGrauOE());
         txt_od.setText(lente.getGrauOD());
-        txt_dval.setText((String.valueOf(lente.getDiasValidade())));
-        txt_durou.setText((String.valueOf(lente.getDiasDuracao())));
-        txt_motivo.setText(lente.getMotivoTroca());
+//        txt_dval.setText((String.valueOf(lente.getDiasValidade())));
+//        txt_durou.setText((String.valueOf(lente.getDiasDuracao())));
+//        txt_motivo.setText(lente.getMotivoTroca());
 
 
         return convertView;

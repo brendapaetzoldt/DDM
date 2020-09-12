@@ -19,8 +19,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HistoricoFragment extends Fragment {
+
+
     public HistoricoFragment() {
     }
+
 
     private LenteDAO dao;
     private List<Lente> lentes;
@@ -31,6 +34,7 @@ public class HistoricoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_historico, container, false);
+
 
         ListView listView = view.findViewById(R.id.list_lentes);
         dao = new LenteDAO(getActivity());
