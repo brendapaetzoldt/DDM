@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -20,16 +21,13 @@ public class MainActivity extends AppCompatActivity {
     //  private List<Lente> lentes;
 
     Button button;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        ListView listView = (ListView) findViewById(R.id.list_lentes);
-//
-//        LenteListAdapter adapter = new LenteListAdapter(getApplicationContext(), 0, lentes);
-//        listView.setAdapter(adapter);
 
         button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -40,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-//        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new HomeFragment()).commit();
+        // getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new HomeFragment()).commit();
 
         TabLayout tabLayout = findViewById(R.id.tabBar);
         TabItem tabHome = findViewById(R.id.home);
