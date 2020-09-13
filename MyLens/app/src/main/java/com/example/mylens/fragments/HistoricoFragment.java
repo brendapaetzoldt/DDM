@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.mylens.R;
+import com.example.mylens.activities.Informacos_lentes;
 import com.example.mylens.adapter.LenteListAdapter;
 import com.example.mylens.db.LenteDAO;
 import com.example.mylens.model.Lente;
@@ -54,7 +55,7 @@ public class HistoricoFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
-                Intent intent = new Intent(getActivity(), Infos_lentes.class);
+                Intent intent = new Intent(getActivity(), Informacos_lentes.class);
                 startActivity(intent);
             }
         });
