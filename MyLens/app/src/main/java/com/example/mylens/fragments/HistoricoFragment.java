@@ -1,5 +1,6 @@
 package com.example.mylens.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,6 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mylens.R;
 import com.example.mylens.adapter.LenteListAdapter;
@@ -54,28 +54,16 @@ public class HistoricoFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
-                Infos();
-
+                Intent intent = new Intent(getActivity(), Infos_lentes.class);
+                startActivity(intent);
             }
         });
-
 
         return view;
 
     }
 
 
-    private void Infos() {
-        //  Toast.makeText(getActivity(), "Sucesso", Toast.LENGTH_SHORT).show();
-
-
-        Infos_lentes infos_lentes = new Infos_lentes();
-        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.historico, infos_lentes);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
