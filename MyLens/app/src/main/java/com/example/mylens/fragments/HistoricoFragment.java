@@ -23,8 +23,6 @@ import java.util.List;
 
 public class HistoricoFragment extends Fragment {
 
-
-
     public HistoricoFragment() {
 
     }
