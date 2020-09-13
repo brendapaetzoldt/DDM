@@ -35,19 +35,9 @@ public class HistoricoFragment extends Fragment {
     private LenteDAO dao;
     private List<Lente> lentes;
     private List<Lente> lentesFiltradas = new ArrayList<>();
-    private AdapterView.OnItemClickListener listClick = new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView parent, View v, int position, long id) {
-
-            String itemValue = String.valueOf(listView.getItemAtPosition(position));
-
-            intent.putExtra("LENTE_SELECIONADA", itemValue);
-            startActivity(intent);
 
 
-//            Toast.makeText(getContext(), "sucesso" + itemValue, Toast.LENGTH_SHORT).show();
-        }
-    };
+
 
     @Nullable
     @Override
@@ -85,6 +75,33 @@ public class HistoricoFragment extends Fragment {
         return view;
 
     }
+
+    private AdapterView.OnItemClickListener listClick = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView parent, View v, int position, long id) {
+
+            String itemValue = String.valueOf(listView.getItemAtPosition(position));
+
+
+            intent.putExtra("LENTE_SELECIONADA", itemValue);
+
+
+            intent.putExtra("ID", lentes.get(position).getId());
+            intent.putExtra("MARCA", lentes.get(position).getMarca());
+            intent.putExtra("OD", lentes.get(position).getGrauOD());
+            intent.putExtra("OE", lentes.get(position).getGrauOE());
+            intent.putExtra("MOTIVO_TROCA", lentes.get(position).getMotivoTroca());
+            intent.putExtra("DIAS_VALIDADE", lentes.get(position).getDiasValidade());
+            intent.putExtra("DIAS_DURACAO", lentes.get(position).getDiasDuracao());
+
+
+            //Toast.makeText(getContext(), "o id é" + id, Toast.LENGTH_SHORT).show();
+
+            startActivity(intent);
+
+
+        }
+    };
 
 
     @Override
