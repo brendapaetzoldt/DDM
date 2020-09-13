@@ -23,6 +23,10 @@ import java.util.List;
 
 public class HistoricoFragment extends Fragment {
 
+    private ListView listView;
+    private Intent intent;
+
+
     public HistoricoFragment() {
 
     }
@@ -31,15 +35,28 @@ public class HistoricoFragment extends Fragment {
     private LenteDAO dao;
     private List<Lente> lentes;
     private List<Lente> lentesFiltradas = new ArrayList<>();
+    private AdapterView.OnItemClickListener listClick = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView parent, View v, int position, long id) {
 
+            String itemValue = String.valueOf(listView.getItemAtPosition(position));
+
+            intent.putExtra("LENTE_SELECIONADA", itemValue);
+            startActivity(intent);
+
+
+//            Toast.makeText(getContext(), "sucesso" + itemValue, Toast.LENGTH_SHORT).show();
+        }
+    };
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_historico, container, false);
 
+        intent = new Intent(getActivity(), Informacos_lentes.class);
 
-        ListView listView = view.findViewById(R.id.list_lentes);
+        listView = view.findViewById(R.id.list_lentes);
         dao = new LenteDAO(getActivity());
         lentes = dao.obterTodos();
         lentesFiltradas.addAll(lentes);
@@ -50,18 +67,24 @@ public class HistoricoFragment extends Fragment {
         adapter.notifyDataSetChanged();
 
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
-                Intent intent = new Intent(getActivity(), Informacos_lentes.class);
-                startActivity(intent);
-            }
-        });
+        listView.setOnItemClickListener(listClick);
+
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
+//                Intent intent = new Intent(getActivity(), Informacos_lentes.class);
+//                String itemValue = (String) listView.getItemAtPosition(posicao);
+//                intent.putExtra("lente_selecionada", itemValue);
+//                startActivity(intent);
+//
+//                Toast.makeText(getContext(), "sucesso" + posicao, Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
 
         return view;
 
     }
-
 
 
     @Override
