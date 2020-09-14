@@ -9,14 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.mylens.R;
-import com.example.mylens.activities.Informacos_lentes;
+import com.example.mylens.activities.Cadastro;
 import com.example.mylens.adapter.LenteListAdapter;
 import com.example.mylens.db.LenteDAO;
 import com.example.mylens.model.Lente;
@@ -39,31 +38,6 @@ public class HistoricoFragment extends Fragment {
     private List<Lente> lentes;
     private List<Lente> lentesFiltradas = new ArrayList<>();
 
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_historico, container, false);
-
-        intent = new Intent(getActivity(), Informacos_lentes.class);
-
-        listView = view.findViewById(R.id.list_lentes);
-        dao = new LenteDAO(getActivity());
-        lentes = dao.obterTodos();
-        lentesFiltradas.addAll(lentes);
-
-        LenteListAdapter adapter = new LenteListAdapter(getActivity().getApplicationContext(), 0, lentes);
-
-        listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-
-
-        listView.setOnItemClickListener(listClick);
-
-
-        return view;
-
-    }
 
     private AdapterView.OnItemClickListener listClick = new AdapterView.OnItemClickListener() {
 
@@ -93,10 +67,21 @@ public class HistoricoFragment extends Fragment {
             verifica((int) id);
 
             final Lente lenteExcluir = lentesFiltradas.get(position);
-            Toast.makeText(getContext(), "Alteração realizada com sucesso" + lenteExcluir, Toast.LENGTH_SHORT).show();
+            final Lente lenteAtualizar = lentesFiltradas.get(position);
 
-            AlertDialog dialog = new AlertDialog.Builder(getContext()).setTitle("Atenção").setMessage("Deseja alterar ou excluir?").setNegativeButton("Excluir", null)
-                    .setPositiveButton("sim", new DialogInterface.OnClickListener() {
+//            Toast.makeText(getContext(), "Alteração realizada com sucesso" + lenteExcluir, Toast.LENGTH_SHORT).show();
+
+
+            AlertDialog dialog = new AlertDialog.Builder(getContext()).setTitle("Atenção").setMessage("Deseja alterar ou excluir?")
+                    .setNegativeButton("Alterar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            intent.putExtra("lenteAlterar", lenteAtualizar);
+                            startActivity(intent);
+
+                        }
+                    })
+                    .setPositiveButton("Excluir", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             lentesFiltradas.remove(lenteExcluir);
@@ -110,6 +95,31 @@ public class HistoricoFragment extends Fragment {
 
         }
     };
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_historico, container, false);
+
+        intent = new Intent(getActivity(), Cadastro.class);
+
+        listView = view.findViewById(R.id.list_lentes);
+        dao = new LenteDAO(getActivity());
+        lentes = dao.obterTodos();
+        lentesFiltradas.addAll(lentes);
+
+        LenteListAdapter adapter = new LenteListAdapter(getActivity().getApplicationContext(), 0, lentes);
+
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+
+        listView.setOnItemClickListener(listClick);
+
+
+        return view;
+
+    }
 
 
     public boolean verifica(int id) {
