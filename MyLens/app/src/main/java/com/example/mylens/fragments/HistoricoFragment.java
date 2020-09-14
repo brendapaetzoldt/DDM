@@ -37,8 +37,6 @@ public class HistoricoFragment extends Fragment {
     private List<Lente> lentesFiltradas = new ArrayList<>();
 
 
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,18 +56,6 @@ public class HistoricoFragment extends Fragment {
 
 
         listView.setOnItemClickListener(listClick);
-
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
-//                Intent intent = new Intent(getActivity(), Informacos_lentes.class);
-//                String itemValue = (String) listView.getItemAtPosition(posicao);
-//                intent.putExtra("lente_selecionada", itemValue);
-//                startActivity(intent);
-//
-//                Toast.makeText(getContext(), "sucesso" + posicao, Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
 
         return view;
