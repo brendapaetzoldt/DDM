@@ -14,9 +14,15 @@ import com.example.mylens.R;
 import com.example.mylens.db.LenteDAO;
 import com.example.mylens.model.Lente;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Informacos_lentes extends AppCompatActivity {
 
-    Button button_cancelar;
+    Button button_cancelar, btn_excluir;
+    private LenteDAO dao;
+    private List<Lente> lentes;
+    private List<Lente> lentesFiltradas = new ArrayList<>();
     EditText marca;
     EditText grauOD;
     EditText grauOE;
@@ -25,7 +31,6 @@ public class Informacos_lentes extends AppCompatActivity {
     //quantos dias realmente durou
     EditText diasDuracao;
     EditText motivoTroca;
-    LenteDAO dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +39,10 @@ public class Informacos_lentes extends AppCompatActivity {
 
         Intent intent2 = getIntent();
 
+        final String lentinha = intent2.getStringExtra("LENTE_SELECIONADA");
 
-        //  String mensagem = intent2.getStringExtra("LENTE_SELECIONADA");
+        final String current_id = intent2.getStringExtra("ID");
+
         String marca = intent2.getStringExtra("MARCA");
         String od = intent2.getStringExtra("OD");
         String oe = intent2.getStringExtra("OE");
@@ -58,6 +65,23 @@ public class Informacos_lentes extends AppCompatActivity {
         edt_dias_duracao.setText(dias_duracao);
         edt_motivo_troca.setText(motivo_troca);
 
+
+        btn_excluir = findViewById(R.id.btn_excluir);
+        btn_excluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Toast.makeText(getApplicationContext(), "Alteração realizada com sucesso" + lentinha, Toast.LENGTH_SHORT).show();
+
+
+                //            Toast.makeText(getApplicationContext(), "Alteração realizada com sucesso" + lentinha, Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+
+
     }
 
     public void Alterar(View view) {
@@ -71,6 +95,27 @@ public class Informacos_lentes extends AppCompatActivity {
         long id = dao.inserir(l);
         Toast.makeText(this, "Alteração realizada com sucesso", Toast.LENGTH_SHORT).show();
     }
+
+//    public void lenteSelecionada(String current_id) {
+//
+//
+//        lentesFiltradas.clear();
+//        for (Lente l : lentes) {
+//            if (l.getId().equals(current_id)) {
+//                lentesFiltradas.add(l);
+//                Toast.makeText(this, "its a match", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//    }
+
+
+//    public void excluir(View view) {
+//        Lente l = new Lente();
+//        long current_id = dao.excluir(l);
+//            Toast.makeText(this, "o id selecionado é:" + current_id  , Toast.LENGTH_SHORT).show();
+//
+//
+//    }
 
     public void retorna(View view) {
         Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);

@@ -53,7 +53,9 @@ public class LenteDAO {
     }
 
     public void excluir(Lente l) {
-        banco.delete("lente", "id = ?", new String[]{String.valueOf(l.getId())});
+        banco.delete("lente", "id=?", new String[]{l.getId() + ""});
+
+
     }
 
 

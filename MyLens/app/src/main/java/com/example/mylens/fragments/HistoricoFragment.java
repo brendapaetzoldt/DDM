@@ -66,13 +66,11 @@ public class HistoricoFragment extends Fragment {
         @Override
         public void onItemClick(AdapterView parent, View v, int position, long id) {
 
-            String itemValue = String.valueOf(listView.getItemAtPosition(position));
+//            String idValue = (String) listView.getItemIdAtPosition(position);
+            String idValue = String.valueOf(listView.getItemIdAtPosition(position));
+            intent.putExtra("ID", idValue);
 
 
-            intent.putExtra("LENTE_SELECIONADA", itemValue);
-
-
-            intent.putExtra("ID", lentes.get(position).getId());
             intent.putExtra("MARCA", lentes.get(position).getMarca());
             intent.putExtra("OD", lentes.get(position).getGrauOD());
             intent.putExtra("OE", lentes.get(position).getGrauOE());
@@ -81,7 +79,16 @@ public class HistoricoFragment extends Fragment {
             intent.putExtra("DIAS_DURACAO", lentes.get(position).getDiasDuracao());
 
 
-            //Toast.makeText(getContext(), "o id é" + id, Toast.LENGTH_SHORT).show();
+            String itemValue = String.valueOf(listView.getItemAtPosition(position));
+            intent.putExtra("LENTE_SELECIONADA", itemValue);
+
+
+//            Lente lentinha = (Lente) listView.getItemAtPosition(position);
+//            intent.putExtra("lentinha", lentinha);
+//            lentesFiltradas.clear();
+//            lentesFiltradas.add(lentinha);
+
+//            Toast.makeText(getContext(), "o id é", Toast.LENGTH_SHORT).show();
 
             startActivity(intent);
 

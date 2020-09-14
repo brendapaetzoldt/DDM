@@ -4,24 +4,24 @@ import java.io.Serializable;
 
 public class Lente implements Serializable {
 
-    private int id;
+    private Integer id;
     private String marca;
     private String grauOD;
     private String grauOE;
     //informada pela caixa/fabricante
-    private int diasValidade;
+    private Integer diasValidade;
     //quantos dias realmente durou
-    private int diasDuracao;
+    private Integer diasDuracao;
     private String motivoTroca;
 
     public Lente() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -49,19 +49,19 @@ public class Lente implements Serializable {
         this.grauOE = grauOE;
     }
 
-    public int getDiasValidade() {
+    public Integer getDiasValidade() {
         return diasValidade;
     }
 
-    public void setDiasValidade(int diasValidade) {
+    public void setDiasValidade(Integer diasValidade) {
         this.diasValidade = diasValidade;
     }
 
-    public int getDiasDuracao() {
+    public Integer getDiasDuracao() {
         return diasDuracao;
     }
 
-    public void setDiasDuracao(int diasDuracao) {
+    public void setDiasDuracao(Integer diasDuracao) {
         this.diasDuracao = diasDuracao;
     }
 
@@ -76,7 +76,13 @@ public class Lente implements Serializable {
     @Override
     public String toString() {
         return "Lente{" +
-                diasValidade +
+                "id=" + id +
+                ", marca='" + marca + '\'' +
+                ", grauOD='" + grauOD + '\'' +
+                ", grauOE='" + grauOE + '\'' +
+                ", diasValidade=" + diasValidade +
+                ", diasDuracao=" + diasDuracao +
+                ", motivoTroca='" + motivoTroca + '\'' +
                 '}';
     }
 }
