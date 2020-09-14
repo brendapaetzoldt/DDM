@@ -1,5 +1,7 @@
 package com.example.mylens.fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -63,10 +66,11 @@ public class HistoricoFragment extends Fragment {
     }
 
     private AdapterView.OnItemClickListener listClick = new AdapterView.OnItemClickListener() {
+
+
         @Override
         public void onItemClick(AdapterView parent, View v, int position, long id) {
 
-//            String idValue = (String) listView.getItemIdAtPosition(position);
             String idValue = String.valueOf(listView.getItemIdAtPosition(position));
             intent.putExtra("ID", idValue);
 
@@ -83,18 +87,42 @@ public class HistoricoFragment extends Fragment {
             intent.putExtra("LENTE_SELECIONADA", itemValue);
 
 
-//            Lente lentinha = (Lente) listView.getItemAtPosition(position);
-//            intent.putExtra("lentinha", lentinha);
-//            lentesFiltradas.clear();
-//            lentesFiltradas.add(lentinha);
+            //  startActivity(intent);
 
-//            Toast.makeText(getContext(), "o id é", Toast.LENGTH_SHORT).show();
 
-            startActivity(intent);
+            verifica((int) id);
+
+            final Lente lenteExcluir = lentesFiltradas.get(position);
+            Toast.makeText(getContext(), "Alteração realizada com sucesso" + lenteExcluir, Toast.LENGTH_SHORT).show();
+
+            AlertDialog dialog = new AlertDialog.Builder(getContext()).setTitle("Atenção").setMessage("Deseja alterar ou excluir?").setNegativeButton("Excluir", null)
+                    .setPositiveButton("sim", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            lentesFiltradas.remove(lenteExcluir);
+                            lentes.remove(lenteExcluir);
+                            dao.excluir(lenteExcluir);
+                            listView.invalidateViews();
+                        }
+                    }).create();
+            dialog.show();
 
 
         }
     };
+
+
+    public boolean verifica(int id) {
+        for (Lente l : lentes) {
+            if (l.getId() == id) {
+                lentesFiltradas.add(l);
+//                Toast.makeText(getActivity(), "its a match", Toast.LENGTH_SHORT).show();
+                return true;
+
+            }
+        }
+        return false;
+    }
 
 
     @Override

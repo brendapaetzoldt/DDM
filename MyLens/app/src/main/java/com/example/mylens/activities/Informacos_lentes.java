@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mylens.R;
 import com.example.mylens.db.LenteDAO;
+import com.example.mylens.fragments.HistoricoFragment;
 import com.example.mylens.model.Lente;
 
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class Informacos_lentes extends AppCompatActivity {
     //quantos dias realmente durou
     EditText diasDuracao;
     EditText motivoTroca;
+    private HistoricoFragment hf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,20 +68,19 @@ public class Informacos_lentes extends AppCompatActivity {
         edt_motivo_troca.setText(motivo_troca);
 
 
-        btn_excluir = findViewById(R.id.btn_excluir);
-        btn_excluir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                Toast.makeText(getApplicationContext(), "Alteração realizada com sucesso" + lentinha, Toast.LENGTH_SHORT).show();
-
-
-                //            Toast.makeText(getApplicationContext(), "Alteração realizada com sucesso" + lentinha, Toast.LENGTH_SHORT).show();
-
-
-            }
-        });
+//        btn_excluir = findViewById(R.id.btn_excluir);
+//        btn_excluir.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//
+//
+//                hf.verifica(Integer.parseInt(current_id));
+//
+//
+//
+//            }
+//        });
 
 
     }
