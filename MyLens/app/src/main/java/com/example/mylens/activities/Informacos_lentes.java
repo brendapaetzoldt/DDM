@@ -100,8 +100,9 @@ public class Informacos_lentes extends AppCompatActivity {
             lente.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
             lente.setMotivoTroca(edt_motivo_troca.getText().toString());
             long id = dao.inserir(lente);
-            listView.invalidateViews();
             Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
+            startActivity(intent);
         } else {
             lente.setMarca(edt_marca.getText().toString());
             lente.setGrauOE(edt_grauoe.getText().toString());
@@ -110,8 +111,9 @@ public class Informacos_lentes extends AppCompatActivity {
             lente.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
             lente.setMotivoTroca(edt_motivo_troca.getText().toString());
             dao.atualizar(lente);
-            listView.invalidateViews();
             Toast.makeText(this, "Alteração realizada com sucesso", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
+            startActivity(intent);
         }
 
     }
@@ -119,8 +121,9 @@ public class Informacos_lentes extends AppCompatActivity {
     public void Excluir(View view) {
         lentes.remove(lente);
         dao.excluir(lente);
-        listView.invalidateViews();
         Toast.makeText(this, "Excluído com sucesso", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
+        startActivity(intent);
 
     }
 

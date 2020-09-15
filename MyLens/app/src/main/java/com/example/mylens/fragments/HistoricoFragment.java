@@ -1,7 +1,5 @@
 package com.example.mylens.fragments;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -45,55 +43,54 @@ public class HistoricoFragment extends Fragment {
         @Override
         public void onItemClick(AdapterView parent, View v, int position, long id) {
 
-            String idValue = String.valueOf(listView.getItemIdAtPosition(position));
-            intent.putExtra("ID", idValue);
-
-
-            intent.putExtra("MARCA", lentes.get(position).getMarca());
-            intent.putExtra("OD", lentes.get(position).getGrauOD());
-            intent.putExtra("OE", lentes.get(position).getGrauOE());
-            intent.putExtra("MOTIVO_TROCA", lentes.get(position).getMotivoTroca());
-            intent.putExtra("DIAS_VALIDADE", lentes.get(position).getDiasValidade());
-            intent.putExtra("DIAS_DURACAO", lentes.get(position).getDiasDuracao());
-
-
-            String itemValue = String.valueOf(listView.getItemAtPosition(position));
-            intent.putExtra("LENTE_SELECIONADA", itemValue);
+//            String idValue = String.valueOf(listView.getItemIdAtPosition(position));
+//            intent.putExtra("ID", idValue);
+//
+//
+//            intent.putExtra("MARCA", lentes.get(position).getMarca());
+//            intent.putExtra("OD", lentes.get(position).getGrauOD());
+//            intent.putExtra("OE", lentes.get(position).getGrauOE());
+//            intent.putExtra("MOTIVO_TROCA", lentes.get(position).getMotivoTroca());
+//            intent.putExtra("DIAS_VALIDADE", lentes.get(position).getDiasValidade());
+//            intent.putExtra("DIAS_DURACAO", lentes.get(position).getDiasDuracao());
+//
+//
+//            String itemValue = String.valueOf(listView.getItemAtPosition(position));
+//            intent.putExtra("LENTE_SELECIONADA", itemValue);
 
 
 //            Toast.makeText(getContext(), "" + itemValue, Toast.LENGTH_SHORT).show();
 
-            //  startActivity(intent);
 
+            final Lente lenteAtualizar = lentesFiltradas.get(position);
+            intent.putExtra("lente", lenteAtualizar);
 
             verifica((int) id);
+            listView.invalidateViews();
 
-            final Lente lenteExcluir = lentesFiltradas.get(position);
-            final Lente lenteAtualizar = lentesFiltradas.get(position);
-
-
-//            Toast.makeText(getContext(), "Alteração realizada com sucesso" + lenteExcluir, Toast.LENGTH_SHORT).show();
+            startActivity(intent);
 
 
-            AlertDialog dialog = new AlertDialog.Builder(getContext()).setTitle("Atenção").setMessage("Deseja alterar ou excluir?")
-                    .setNegativeButton("Alterar", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            intent.putExtra("lente", lenteAtualizar);
-                            startActivity(intent);
-
-                        }
-                    })
-                    .setPositiveButton("Excluir", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            lentesFiltradas.remove(lenteExcluir);
-                            lentes.remove(lenteExcluir);
-                            dao.excluir(lenteExcluir);
-                            listView.invalidateViews();
-                        }
-                    }).create();
-            dialog.show();
+//
+//            AlertDialog dialog = new AlertDialog.Builder(getContext()).setTitle("Atenção").setMessage("Deseja alterar ou excluir?")
+//                    .setNegativeButton("Alterar", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            intent.putExtra("lente", lenteAtualizar);
+//                            startActivity(intent);
+//
+//                        }
+//                    })
+//                    .setPositiveButton("Excluir", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            lentesFiltradas.remove(lenteAtualizar);
+//                            lentes.remove(lenteAtualizar);
+//                            dao.excluir(lenteAtualizar);
+//                            listView.invalidateViews();
+//                        }
+//                    }).create();
+//            dialog.show();
 
 
         }
@@ -129,7 +126,6 @@ public class HistoricoFragment extends Fragment {
         for (Lente l : lentes) {
             if (l.getId() == id) {
                 lentesFiltradas.add(l);
-//                Toast.makeText(getActivity(), "its a match", Toast.LENGTH_SHORT).show();
                 return true;
 
             }

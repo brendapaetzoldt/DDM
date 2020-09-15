@@ -54,8 +54,9 @@ public class Cadastro extends AppCompatActivity {
         l.setDiasDuracao(Integer.parseInt(diasDuracao.getText().toString()));
         l.setMotivoTroca(motivoTroca.getText().toString());
         long id = dao.inserir(l);
-        listView.invalidateViews();
         Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(Cadastro.this, MainActivity.class);
+        startActivity(intent);
     }
 
     public void retorna(View view) {
