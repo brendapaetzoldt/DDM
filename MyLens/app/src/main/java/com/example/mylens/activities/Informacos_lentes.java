@@ -33,6 +33,7 @@ public class Informacos_lentes extends AppCompatActivity {
     EditText edt_motivo_troca;
     private HistoricoFragment hf;
     private Lente l = null;
+    int defaultValue = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +59,8 @@ public class Informacos_lentes extends AppCompatActivity {
         String marca = intent2.getStringExtra("MARCA");
         String od = intent2.getStringExtra("OD");
         String oe = intent2.getStringExtra("OE");
-        String dias_validade = intent2.getStringExtra("DIAS_VALIDADE");
-        String dias_duracao = intent2.getStringExtra("DIAS_DURACAO");
+        Integer dias_validade = intent2.getIntExtra("DIAS_VALIDADE", defaultValue);
+        Integer dias_duracao = intent2.getIntExtra("DIAS_DURACAO", defaultValue);
         String motivo_troca = intent2.getStringExtra("MOTIVO_TROCA");
 
 
@@ -74,11 +75,9 @@ public class Informacos_lentes extends AppCompatActivity {
         edt_marca.setText(marca);
         edt_grauod.setText(od);
         edt_grauoe.setText(oe);
-        edt_dias_validade.setText(dias_validade);
-        edt_dias_duracao.setText(dias_duracao);
+        edt_dias_validade.setText(String.valueOf(dias_validade));
+        edt_dias_duracao.setText(String.valueOf(dias_duracao));
         edt_motivo_troca.setText(motivo_troca);
-
-        Toast.makeText(this, "Cadastrado com sucesso" + dias_validade + dias_duracao, Toast.LENGTH_SHORT).show();
 
 
     }
