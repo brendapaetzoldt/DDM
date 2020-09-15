@@ -58,9 +58,10 @@ public class Informacos_lentes extends AppCompatActivity {
         String marca = intent2.getStringExtra("MARCA");
         String od = intent2.getStringExtra("OD");
         String oe = intent2.getStringExtra("OE");
-        String motivo_troca = intent2.getStringExtra("MOTIVO_TROCA");
         String dias_validade = intent2.getStringExtra("DIAS_VALIDADE");
         String dias_duracao = intent2.getStringExtra("DIAS_DURACAO");
+        String motivo_troca = intent2.getStringExtra("MOTIVO_TROCA");
+
 
         edt_marca = findViewById(R.id.edt_marca);
         edt_grauod = findViewById(R.id.edt_grauod);
@@ -82,29 +83,35 @@ public class Informacos_lentes extends AppCompatActivity {
 
 
     public void Alterar(View view) {
-
-        if (l == null) {
-            Lente l = new Lente();
-            l.setMarca(edt_marca.getText().toString());
-            l.setGrauOD(edt_grauod.getText().toString());
-            l.setGrauOE(edt_grauoe.getText().toString());
-            l.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
-            l.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
-            l.setMotivoTroca(edt_motivo_troca.getText().toString());
-            long id = dao.inserir(l);
-            Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
-        } else {
-            l.setMarca(edt_marca.getText().toString());
-            l.setGrauOD(edt_grauod.getText().toString());
-            l.setGrauOE(edt_grauoe.getText().toString());
-            l.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
-            l.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
-            l.setMotivoTroca(edt_motivo_troca.getText().toString());
-            dao.atualizar(l);
-            Toast.makeText(this, "Alteração realizada com sucesso", Toast.LENGTH_SHORT).show();
-        }
-//
-
+        Lente l = new Lente();
+        l.setMarca(edt_marca.getText().toString());
+        l.setGrauOE(edt_grauoe.getText().toString());
+        l.setGrauOD(edt_grauod.getText().toString());
+        l.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
+        l.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
+        l.setMotivoTroca(edt_motivo_troca.getText().toString());
+        long id = dao.inserir(l);
+        Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
+//        if (l == null) {
+//            Lente l = new Lente();
+//            l.setMarca(edt_marca.getText().toString());
+//            l.setGrauOD(edt_grauod.getText().toString());
+//            l.setGrauOE(edt_grauoe.getText().toString());
+//            l.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
+//            l.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
+//            l.setMotivoTroca(edt_motivo_troca.getText().toString());
+//            long id = dao.inserir(l);
+//            Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
+//        } else {
+//            l.setMarca(edt_marca.getText().toString());
+//            l.setGrauOD(edt_grauod.getText().toString());
+//            l.setGrauOE(edt_grauoe.getText().toString());
+//            l.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
+//            l.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
+//            l.setMotivoTroca(edt_motivo_troca.getText().toString());
+//            dao.atualizar(l);
+//            Toast.makeText(this, "Alteração realizada com sucesso", Toast.LENGTH_SHORT).show();
+//        }
 
     }
 

@@ -23,8 +23,8 @@ public class LenteDAO {
     public long inserir(Lente lente) {
         ContentValues values = new ContentValues();
         values.put("marca", lente.getMarca());
-        values.put("grauOE", lente.getGrauOE());
         values.put("grauOD", lente.getGrauOD());
+        values.put("grauOE", lente.getGrauOE());
         values.put("diasValidade", lente.getDiasValidade());
         values.put("diasDuracao", lente.getDiasDuracao());
         values.put("motivoTroca", lente.getMotivoTroca());
@@ -34,14 +34,14 @@ public class LenteDAO {
 
     public List<Lente> obterTodos() {
         List<Lente> lentes = new ArrayList<>();
-        Cursor cursor = banco.query("lente", new String[]{"id", "marca", "grauOE", "grauOD", "diasValidade", "diasDuracao", "motivoTroca"},
+        Cursor cursor = banco.query("lente", new String[]{"id", "marca", "grauOD", "grauOE", "diasValidade", "diasDuracao", "motivoTroca"},
                 null, null, null, null, null);
         while (cursor.moveToNext()) {
             Lente l = new Lente();
             l.setId(cursor.getInt(0));
             l.setMarca(cursor.getString(1));
-            l.setGrauOE(cursor.getString(2));
-            l.setGrauOD(cursor.getString(3));
+            l.setGrauOD(cursor.getString(2));
+            l.setGrauOE(cursor.getString(3));
             l.setDiasValidade(cursor.getInt(4));
             l.setDiasDuracao(cursor.getInt(5));
             l.setMotivoTroca(cursor.getString(6));

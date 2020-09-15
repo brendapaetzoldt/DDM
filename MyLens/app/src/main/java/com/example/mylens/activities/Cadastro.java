@@ -48,7 +48,7 @@ public class Cadastro extends AppCompatActivity {
         l.setMarca(marca.getText().toString());
         l.setGrauOE(grauOE.getText().toString());
         l.setGrauOD(grauOD.getText().toString());
-        l.setDiasValidade(Integer.parseInt(diasDuracao.getText().toString()));
+        l.setDiasValidade(Integer.valueOf(diasDuracao.getText().toString()));
         l.setDiasDuracao(Integer.parseInt(diasDuracao.getText().toString()));
         l.setMotivoTroca(motivoTroca.getText().toString());
         long id = dao.inserir(l);

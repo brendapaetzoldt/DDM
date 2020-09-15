@@ -14,9 +14,6 @@ public class Lente implements Serializable {
     private Integer diasDuracao;
     private String motivoTroca;
 
-    public Lente() {
-    }
-
     public Integer getId() {
         return id;
     }
