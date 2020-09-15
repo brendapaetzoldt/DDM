@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,20 +19,20 @@ import java.util.List;
 
 public class Informacos_lentes extends AppCompatActivity {
 
-    Button button_cancelar, btn_excluir;
+    Button button_cancelar, btn_excluir, btn_cadastrar;
     private LenteDAO dao;
     private List<Lente> lentes;
     private List<Lente> lentesFiltradas = new ArrayList<>();
-    EditText marca;
-    EditText grauOD;
-    EditText grauOE;
+    EditText edt_marca;
+    EditText edt_grauod;
+    EditText edt_grauoe;
     //informada pela caixa/fabricante
-    EditText diasValidade;
+    EditText edt_dias_validade;
     //quantos dias realmente durou
-    EditText diasDuracao;
-    EditText motivoTroca;
+    EditText edt_dias_duracao;
+    EditText edt_motivo_troca;
     private HistoricoFragment hf;
-    private Lente lente = null;
+    private Lente l = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,21 +42,18 @@ public class Informacos_lentes extends AppCompatActivity {
 
         Intent intent2 = getIntent();
 
-        if (intent2.hasExtra("lenteAlterar")) {
-            lente = (Lente) intent2.getSerializableExtra("lenteAlterar");
-            marca.setText(lente.getMarca());
-            grauOD.setText(lente.getGrauOD());
-            grauOE.setText(lente.getGrauOE());
-            motivoTroca.setText(lente.getMotivoTroca());
-            diasValidade.setText(lente.getDiasValidade());
-            diasDuracao.setText(lente.getDiasDuracao());
+//        if (intent2.hasExtra("lenteAlterar")) {
+//            l = (Lente) intent2.getSerializableExtra("lenteAlterar");
+//            edt_marca.setText(l.getMarca());
+//            edt_grauod.setText(l.getGrauOD());
+//            edt_grauoe.setText(l.getGrauOE());
+//            edt_dias_validade.setText(l.getDiasValidade());
+//            edt_dias_duracao.setText(l.getDiasDuracao());
+//            edt_motivo_troca.setText(l.getMotivoTroca());
+//
+//
+//        }
 
-
-        }
-
-        final String lentinha = intent2.getStringExtra("LENTE_SELECIONADA");
-
-        final String current_id = intent2.getStringExtra("ID");
 
         String marca = intent2.getStringExtra("MARCA");
         String od = intent2.getStringExtra("OD");
@@ -66,12 +62,12 @@ public class Informacos_lentes extends AppCompatActivity {
         String dias_validade = intent2.getStringExtra("DIAS_VALIDADE");
         String dias_duracao = intent2.getStringExtra("DIAS_DURACAO");
 
-        TextView edt_marca = findViewById(R.id.edt_marca);
-        TextView edt_grauoe = findViewById(R.id.edt_grauoe);
-        TextView edt_grauod = findViewById(R.id.edt_grauod);
-        TextView edt_dias_validade = findViewById(R.id.edt_dias_validade);
-        TextView edt_dias_duracao = findViewById(R.id.edt_dias_duracao);
-        TextView edt_motivo_troca = findViewById(R.id.sp_motivo_troca);
+        edt_marca = findViewById(R.id.edt_marca);
+        edt_grauod = findViewById(R.id.edt_grauod);
+        edt_grauoe = findViewById(R.id.edt_grauoe);
+        edt_dias_validade = findViewById(R.id.edt_dias_validade);
+        edt_dias_duracao = findViewById(R.id.edt_dias_duracao);
+        edt_motivo_troca = findViewById(R.id.sp_motivo_troca);
 
 
         edt_marca.setText(marca);
@@ -82,45 +78,34 @@ public class Informacos_lentes extends AppCompatActivity {
         edt_motivo_troca.setText(motivo_troca);
 
 
-//        btn_excluir = findViewById(R.id.btn_excluir);
-//        btn_excluir.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//
-//
-//                hf.verifica(Integer.parseInt(current_id));
-//
-//
-//
-//            }
-//        });
-
-
     }
+
 
     public void Alterar(View view) {
 
-        if (lente == null) {
-            lente = new Lente();
-            lente.setMarca(marca.getText().toString());
-            lente.setGrauOE(grauOE.getText().toString());
-            lente.setGrauOD(grauOD.getText().toString());
-            lente.setDiasValidade(Integer.parseInt(diasDuracao.getText().toString()));
-            lente.setDiasDuracao(Integer.parseInt(diasDuracao.getText().toString()));
-            lente.setMotivoTroca(motivoTroca.getText().toString());
-            long id = dao.inserir(lente);
-            Toast.makeText(this, "Lente cadastrada com sucesso", Toast.LENGTH_SHORT).show();
+        if (l == null) {
+            Lente l = new Lente();
+            l.setMarca(edt_marca.getText().toString());
+            l.setGrauOD(edt_grauod.getText().toString());
+            l.setGrauOE(edt_grauoe.getText().toString());
+            l.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
+            l.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
+            l.setMotivoTroca(edt_motivo_troca.getText().toString());
+            long id = dao.inserir(l);
+            Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
         } else {
-            lente.setMarca(marca.getText().toString());
-            lente.setGrauOE(grauOE.getText().toString());
-            lente.setGrauOD(grauOD.getText().toString());
-            lente.setDiasValidade(Integer.parseInt(diasDuracao.getText().toString()));
-            lente.setDiasDuracao(Integer.parseInt(diasDuracao.getText().toString()));
-            lente.setMotivoTroca(motivoTroca.getText().toString());
-            dao.atualizar(lente);
+            l.setMarca(edt_marca.getText().toString());
+            l.setGrauOD(edt_grauod.getText().toString());
+            l.setGrauOE(edt_grauoe.getText().toString());
+            l.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
+            l.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
+            l.setMotivoTroca(edt_motivo_troca.getText().toString());
+            dao.atualizar(l);
             Toast.makeText(this, "Alteração realizada com sucesso", Toast.LENGTH_SHORT).show();
         }
+//
+
+
     }
 
 

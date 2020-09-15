@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.mylens.R;
-import com.example.mylens.activities.Cadastro;
+import com.example.mylens.activities.Informacos_lentes;
 import com.example.mylens.adapter.LenteListAdapter;
 import com.example.mylens.db.LenteDAO;
 import com.example.mylens.model.Lente;
@@ -101,7 +101,7 @@ public class HistoricoFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_historico, container, false);
 
-        intent = new Intent(getActivity(), Cadastro.class);
+        intent = new Intent(getActivity(), Informacos_lentes.class);
 
         listView = view.findViewById(R.id.list_lentes);
         dao = new LenteDAO(getActivity());
