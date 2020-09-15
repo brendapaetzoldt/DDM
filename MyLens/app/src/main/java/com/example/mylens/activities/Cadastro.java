@@ -46,8 +46,8 @@ public class Cadastro extends AppCompatActivity {
         l.setMarca(marca.getText().toString());
         l.setGrauOE(grauOE.getText().toString());
         l.setGrauOD(grauOD.getText().toString());
-        l.setDiasValidade(Integer.getInteger(diasValidade.getText().toString()));
-        l.setDiasDuracao(Integer.getInteger(diasDuracao.getText().toString()));
+        l.setDiasValidade(Integer.parseInt(diasValidade.getText().toString()));
+        l.setDiasDuracao(Integer.parseInt(diasDuracao.getText().toString()));
         l.setMotivoTroca(motivoTroca.getText().toString());
         long id = dao.inserir(l);
         Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();

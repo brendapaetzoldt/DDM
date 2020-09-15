@@ -61,6 +61,8 @@ public class HistoricoFragment extends Fragment {
             intent.putExtra("LENTE_SELECIONADA", itemValue);
 
 
+//            Toast.makeText(getContext(), "" + itemValue, Toast.LENGTH_SHORT).show();
+
             //  startActivity(intent);
 
 
