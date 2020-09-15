@@ -38,8 +38,6 @@ public class HistoricoFragment extends Fragment {
 
 
     private AdapterView.OnItemClickListener listClick = new AdapterView.OnItemClickListener() {
-
-
         @Override
         public void onItemClick(AdapterView parent, View v, int position, long id) {
 
@@ -53,6 +51,7 @@ public class HistoricoFragment extends Fragment {
 
         }
     };
+
 
     @Nullable
     @Override

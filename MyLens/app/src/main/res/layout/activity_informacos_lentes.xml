@@ -34,7 +34,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="15dp"
-                    android:text="Cadastro de lentes"
+                    android:gravity="center"
+                    android:text="Atualização de lentes"
                     android:textSize="25sp" />
 
                 <TextView
