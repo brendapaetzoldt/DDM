@@ -78,7 +78,7 @@ public class HistoricoFragment extends Fragment {
                     .setNegativeButton("Alterar", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            intent.putExtra("lenteAlterar", lenteAtualizar);
+                            intent.putExtra("lente", lenteAtualizar);
                             startActivity(intent);
 
                         }

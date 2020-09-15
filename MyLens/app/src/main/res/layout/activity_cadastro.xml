@@ -163,6 +163,7 @@
                 android:layout_width="130sp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
+                android:onClick="retorna"
                 android:text="Cancelar" />
         </LinearLayout>
 

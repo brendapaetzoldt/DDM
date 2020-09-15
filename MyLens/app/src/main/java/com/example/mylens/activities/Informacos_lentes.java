@@ -32,7 +32,7 @@ public class Informacos_lentes extends AppCompatActivity {
     EditText edt_dias_duracao;
     EditText edt_motivo_troca;
     private HistoricoFragment hf;
-    private Lente l = null;
+    private Lente lente = null;
     int defaultValue = -1;
 
     @Override
@@ -43,25 +43,25 @@ public class Informacos_lentes extends AppCompatActivity {
 
         Intent intent2 = getIntent();
 
-//        if (intent2.hasExtra("lenteAlterar")) {
-//            l = (Lente) intent2.getSerializableExtra("lenteAlterar");
-//            edt_marca.setText(l.getMarca());
-//            edt_grauod.setText(l.getGrauOD());
-//            edt_grauoe.setText(l.getGrauOE());
-//            edt_dias_validade.setText(l.getDiasValidade());
-//            edt_dias_duracao.setText(l.getDiasDuracao());
-//            edt_motivo_troca.setText(l.getMotivoTroca());
-//
-//
-//        }
+        if (intent2.hasExtra("lente")) {
+            lente = (Lente) intent2.getSerializableExtra("lente");
+//            edt_marca.setText(lente.getMarca());
+//            edt_grauod.setText(lente.getGrauOD());
+//            edt_grauoe.setText(lente.getGrauOE());
+//            edt_dias_validade.setText(lente.getDiasValidade());
+//            edt_dias_duracao.setText(lente.getDiasDuracao());
+//            edt_motivo_troca.setText(lente.getMotivoTroca());
 
 
-        String marca = intent2.getStringExtra("MARCA");
-        String od = intent2.getStringExtra("OD");
-        String oe = intent2.getStringExtra("OE");
-        Integer dias_validade = intent2.getIntExtra("DIAS_VALIDADE", defaultValue);
-        Integer dias_duracao = intent2.getIntExtra("DIAS_DURACAO", defaultValue);
-        String motivo_troca = intent2.getStringExtra("MOTIVO_TROCA");
+        }
+
+
+//        String marca = intent2.getStringExtra("MARCA");
+//        String od = intent2.getStringExtra("OD");
+//        String oe = intent2.getStringExtra("OE");
+//        Integer dias_validade = intent2.getIntExtra("DIAS_VALIDADE", defaultValue);
+//        Integer dias_duracao = intent2.getIntExtra("DIAS_DURACAO", defaultValue);
+//        String motivo_troca = intent2.getStringExtra("MOTIVO_TROCA");
 
 
         edt_marca = findViewById(R.id.edt_marca);
@@ -72,12 +72,12 @@ public class Informacos_lentes extends AppCompatActivity {
         edt_motivo_troca = findViewById(R.id.edt_motivo_troca);
 
 
-        edt_marca.setText(marca);
-        edt_grauod.setText(od);
-        edt_grauoe.setText(oe);
-        edt_dias_validade.setText(String.valueOf(dias_validade));
-        edt_dias_duracao.setText(String.valueOf(dias_duracao));
-        edt_motivo_troca.setText(motivo_troca);
+        edt_marca.setText(lente.getMarca());
+        edt_grauod.setText(lente.getGrauOD());
+        edt_grauoe.setText(lente.getGrauOE());
+        edt_dias_validade.setText(String.valueOf(lente.getDiasValidade()));
+        edt_dias_duracao.setText(String.valueOf(lente.getDiasDuracao()));
+        edt_motivo_troca.setText(lente.getMotivoTroca());
 
 
     }
@@ -85,24 +85,25 @@ public class Informacos_lentes extends AppCompatActivity {
 
     public void Alterar(View view) {
 
-        if (l == null) {
-            Lente l = new Lente();
-            l.setMarca(edt_marca.getText().toString());
-            l.setGrauOE(edt_grauoe.getText().toString());
-            l.setGrauOD(edt_grauod.getText().toString());
-            l.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
-            l.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
-            l.setMotivoTroca(edt_motivo_troca.getText().toString());
-            long id = dao.inserir(l);
+
+        if (lente == null) {
+            lente = new Lente();
+            lente.setMarca(edt_marca.getText().toString());
+            lente.setGrauOE(edt_grauoe.getText().toString());
+            lente.setGrauOD(edt_grauod.getText().toString());
+            lente.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
+            lente.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
+            lente.setMotivoTroca(edt_motivo_troca.getText().toString());
+            long id = dao.inserir(lente);
             Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
         } else {
-            l.setMarca(edt_marca.getText().toString());
-            l.setGrauOE(edt_grauoe.getText().toString());
-            l.setGrauOD(edt_grauod.getText().toString());
-            l.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
-            l.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
-            l.setMotivoTroca(edt_motivo_troca.getText().toString());
-            dao.atualizar(l);
+            lente.setMarca(edt_marca.getText().toString());
+            lente.setGrauOE(edt_grauoe.getText().toString());
+            lente.setGrauOD(edt_grauod.getText().toString());
+            lente.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
+            lente.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
+            lente.setMotivoTroca(edt_motivo_troca.getText().toString());
+            dao.atualizar(lente);
             Toast.makeText(this, "Alteração realizada com sucesso", Toast.LENGTH_SHORT).show();
         }
 
