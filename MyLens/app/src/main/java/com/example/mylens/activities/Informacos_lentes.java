@@ -51,23 +51,8 @@ public class Informacos_lentes extends AppCompatActivity {
 
         if (intent2.hasExtra("lente")) {
             lente = (Lente) intent2.getSerializableExtra("lente");
-//            edt_marca.setText(lente.getMarca());
-//            edt_grauod.setText(lente.getGrauOD());
-//            edt_grauoe.setText(lente.getGrauOE());
-//            edt_dias_validade.setText(lente.getDiasValidade());
-//            edt_dias_duracao.setText(lente.getDiasDuracao());
-//            edt_motivo_troca.setText(lente.getMotivoTroca());
-
 
         }
-
-
-//        String marca = intent2.getStringExtra("MARCA");
-//        String od = intent2.getStringExtra("OD");
-//        String oe = intent2.getStringExtra("OE");
-//        Integer dias_validade = intent2.getIntExtra("DIAS_VALIDADE", defaultValue);
-//        Integer dias_duracao = intent2.getIntExtra("DIAS_DURACAO", defaultValue);
-//        String motivo_troca = intent2.getStringExtra("MOTIVO_TROCA");
 
 
         edt_marca = findViewById(R.id.edt_marca);

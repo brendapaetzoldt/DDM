@@ -43,25 +43,6 @@ public class HistoricoFragment extends Fragment {
         @Override
         public void onItemClick(AdapterView parent, View v, int position, long id) {
 
-//            String idValue = String.valueOf(listView.getItemIdAtPosition(position));
-//            intent.putExtra("ID", idValue);
-//
-//
-//            intent.putExtra("MARCA", lentes.get(position).getMarca());
-//            intent.putExtra("OD", lentes.get(position).getGrauOD());
-//            intent.putExtra("OE", lentes.get(position).getGrauOE());
-//            intent.putExtra("MOTIVO_TROCA", lentes.get(position).getMotivoTroca());
-//            intent.putExtra("DIAS_VALIDADE", lentes.get(position).getDiasValidade());
-//            intent.putExtra("DIAS_DURACAO", lentes.get(position).getDiasDuracao());
-//
-//
-//            String itemValue = String.valueOf(listView.getItemAtPosition(position));
-//            intent.putExtra("LENTE_SELECIONADA", itemValue);
-
-
-//            Toast.makeText(getContext(), "" + itemValue, Toast.LENGTH_SHORT).show();
-
-
             final Lente lenteAtualizar = lentesFiltradas.get(position);
             intent.putExtra("lente", lenteAtualizar);
 
@@ -69,29 +50,6 @@ public class HistoricoFragment extends Fragment {
             listView.invalidateViews();
 
             startActivity(intent);
-
-
-//
-//            AlertDialog dialog = new AlertDialog.Builder(getContext()).setTitle("Atenção").setMessage("Deseja alterar ou excluir?")
-//                    .setNegativeButton("Alterar", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            intent.putExtra("lente", lenteAtualizar);
-//                            startActivity(intent);
-//
-//                        }
-//                    })
-//                    .setPositiveButton("Excluir", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            lentesFiltradas.remove(lenteAtualizar);
-//                            lentes.remove(lenteAtualizar);
-//                            dao.excluir(lenteAtualizar);
-//                            listView.invalidateViews();
-//                        }
-//                    }).create();
-//            dialog.show();
-
 
         }
     };
