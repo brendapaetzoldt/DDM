@@ -100,6 +100,7 @@ public class Informacos_lentes extends AppCompatActivity {
             lente.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
             lente.setMotivoTroca(edt_motivo_troca.getText().toString());
             long id = dao.inserir(lente);
+            listView.invalidateViews();
             Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
         } else {
             lente.setMarca(edt_marca.getText().toString());
@@ -109,6 +110,7 @@ public class Informacos_lentes extends AppCompatActivity {
             lente.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
             lente.setMotivoTroca(edt_motivo_troca.getText().toString());
             dao.atualizar(lente);
+            listView.invalidateViews();
             Toast.makeText(this, "Alteração realizada com sucesso", Toast.LENGTH_SHORT).show();
         }
 
