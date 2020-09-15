@@ -6,8 +6,8 @@ public class Lente implements Serializable {
 
     private Integer id;
     private String marca;
-    private String grauOD;
     private String grauOE;
+    private String grauOD;
     //informada pela caixa/fabricante
     private Integer diasValidade;
     //quantos dias realmente durou
@@ -30,20 +30,20 @@ public class Lente implements Serializable {
         this.marca = marca;
     }
 
-    public String getGrauOD() {
-        return grauOD;
-    }
-
-    public void setGrauOD(String grauOD) {
-        this.grauOD = grauOD;
-    }
-
     public String getGrauOE() {
         return grauOE;
     }
 
     public void setGrauOE(String grauOE) {
         this.grauOE = grauOE;
+    }
+
+    public String getGrauOD() {
+        return grauOD;
+    }
+
+    public void setGrauOD(String grauOD) {
+        this.grauOD = grauOD;
     }
 
     public Integer getDiasValidade() {
@@ -75,8 +75,8 @@ public class Lente implements Serializable {
         return "Lente{" +
                 "id=" + id +
                 ", marca='" + marca + '\'' +
-                ", grauOD='" + grauOD + '\'' +
                 ", grauOE='" + grauOE + '\'' +
+                ", grauOD='" + grauOD + '\'' +
                 ", diasValidade=" + diasValidade +
                 ", diasDuracao=" + diasDuracao +
                 ", motivoTroca='" + motivoTroca + '\'' +

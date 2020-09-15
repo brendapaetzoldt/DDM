@@ -17,11 +17,9 @@ public class Cadastro extends AppCompatActivity {
 
     Button button_cancelar;
     EditText marca;
-    EditText grauOD;
     EditText grauOE;
-    //informada pela caixa/fabricante
+    EditText grauOD;
     EditText diasValidade;
-    //quantos dias realmente durou
     EditText diasDuracao;
     EditText motivoTroca;
     LenteDAO dao;
@@ -36,7 +34,7 @@ public class Cadastro extends AppCompatActivity {
         grauOD = findViewById(R.id.edt_grauod);
         diasValidade = findViewById(R.id.edt_dias_validade);
         diasDuracao = findViewById(R.id.edt_dias_duracao);
-        motivoTroca = findViewById(R.id.sp_motivo_troca);
+        motivoTroca = findViewById(R.id.edt_motivo_troca);
         dao = new LenteDAO(this);
 
 
@@ -48,8 +46,8 @@ public class Cadastro extends AppCompatActivity {
         l.setMarca(marca.getText().toString());
         l.setGrauOE(grauOE.getText().toString());
         l.setGrauOD(grauOD.getText().toString());
-        l.setDiasValidade(Integer.valueOf(diasDuracao.getText().toString()));
-        l.setDiasDuracao(Integer.parseInt(diasDuracao.getText().toString()));
+        l.setDiasValidade(Integer.getInteger(diasValidade.getText().toString()));
+        l.setDiasDuracao(Integer.getInteger(diasDuracao.getText().toString()));
         l.setMotivoTroca(motivoTroca.getText().toString());
         long id = dao.inserir(l);
         Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();

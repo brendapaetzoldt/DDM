@@ -68,8 +68,8 @@
                             android:text="Grau olho esquerdo" />
 
                         <EditText
-                            android:id="@+id/edt_grauod"
-                            android:layout_width="match_parent"
+                            android:id="@+id/edt_grauoe"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName" />
@@ -84,14 +84,15 @@
                             android:id="@+id/textView8"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Grau olho esquerdo" />
+                            android:text="Grau olho direito" />
 
                         <EditText
-                            android:id="@+id/edt_grauoe"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/edt_grauod"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName" />
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -130,7 +131,7 @@
                     android:text="Motivo da troca" />
 
                 <EditText
-                    android:id="@+id/sp_motivo_troca"
+                    android:id="@+id/edt_motivo_troca"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"

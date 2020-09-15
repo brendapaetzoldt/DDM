@@ -68,7 +68,7 @@ public class Informacos_lentes extends AppCompatActivity {
         edt_grauoe = findViewById(R.id.edt_grauoe);
         edt_dias_validade = findViewById(R.id.edt_dias_validade);
         edt_dias_duracao = findViewById(R.id.edt_dias_duracao);
-        edt_motivo_troca = findViewById(R.id.sp_motivo_troca);
+        edt_motivo_troca = findViewById(R.id.edt_motivo_troca);
 
 
         edt_marca.setText(marca);

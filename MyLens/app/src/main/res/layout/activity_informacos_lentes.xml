@@ -129,7 +129,7 @@
                     android:text="Motivo da troca" />
 
                 <EditText
-                    android:id="@+id/sp_motivo_troca"
+                    android:id="@+id/edt_motivo_troca"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
