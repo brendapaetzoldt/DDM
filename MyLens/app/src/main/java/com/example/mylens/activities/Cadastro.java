@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,11 +24,14 @@ public class Cadastro extends AppCompatActivity {
     EditText diasDuracao;
     EditText motivoTroca;
     LenteDAO dao;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
+
+        listView = findViewById(R.id.list_lentes);
 
         marca = findViewById(R.id.edt_marca);
         grauOE = findViewById(R.id.edt_grauoe);
@@ -50,6 +54,7 @@ public class Cadastro extends AppCompatActivity {
         l.setDiasDuracao(Integer.parseInt(diasDuracao.getText().toString()));
         l.setMotivoTroca(motivoTroca.getText().toString());
         long id = dao.inserir(l);
+        listView.invalidateViews();
         Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
     }
 

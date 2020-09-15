@@ -71,6 +71,7 @@ public class HistoricoFragment extends Fragment {
             final Lente lenteExcluir = lentesFiltradas.get(position);
             final Lente lenteAtualizar = lentesFiltradas.get(position);
 
+
 //            Toast.makeText(getContext(), "Alteração realizada com sucesso" + lenteExcluir, Toast.LENGTH_SHORT).show();
 
 

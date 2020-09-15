@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,11 +35,16 @@ public class Informacos_lentes extends AppCompatActivity {
     private HistoricoFragment hf;
     private Lente lente = null;
     int defaultValue = -1;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informacos_lentes);
+        dao = new LenteDAO(getApplicationContext());
+        lentes = dao.obterTodos();
+
+        listView = findViewById(R.id.list_lentes);
 
 
         Intent intent2 = getIntent();
@@ -85,7 +91,6 @@ public class Informacos_lentes extends AppCompatActivity {
 
     public void Alterar(View view) {
 
-
         if (lente == null) {
             lente = new Lente();
             lente.setMarca(edt_marca.getText().toString());
@@ -106,6 +111,14 @@ public class Informacos_lentes extends AppCompatActivity {
             dao.atualizar(lente);
             Toast.makeText(this, "Alteração realizada com sucesso", Toast.LENGTH_SHORT).show();
         }
+
+    }
+
+    public void Excluir(View view) {
+        lentes.remove(lente);
+        dao.excluir(lente);
+        listView.invalidateViews();
+        Toast.makeText(this, "Excluído com sucesso", Toast.LENGTH_SHORT).show();
 
     }
 

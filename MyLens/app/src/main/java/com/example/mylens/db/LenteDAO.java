@@ -59,15 +59,15 @@ public class LenteDAO {
     }
 
 
-    public void atualizar(Lente l) {
+    public void atualizar(Lente lente) {
         ContentValues values = new ContentValues();
-        values.put("marca", l.getMarca());
-        values.put("grauOE", l.getGrauOE());
-        values.put("grauOD", l.getGrauOD());
-        values.put("diasValidade", l.getDiasValidade());
-        values.put("diasDuracao", l.getDiasDuracao());
-        values.put("motivoTroca", l.getMotivoTroca());
-        banco.update("lente", values, "id=?", new String[]{l.getId() + ""});
+        values.put("marca", lente.getMarca());
+        values.put("grauOE", lente.getGrauOE());
+        values.put("grauOD", lente.getGrauOD());
+        values.put("diasValidade", lente.getDiasValidade());
+        values.put("diasDuracao", lente.getDiasDuracao());
+        values.put("motivoTroca", lente.getMotivoTroca());
+        banco.update("lente", values, "id=?", new String[]{lente.getId().toString()});
     }
 }
 
