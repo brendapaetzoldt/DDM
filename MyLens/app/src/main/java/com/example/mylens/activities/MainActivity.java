@@ -10,39 +10,43 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.mylens.R;
 import com.example.mylens.adapter.PagerAdapter;
-import com.example.mylens.fragments.HomeFragment;
+import com.example.mylens.db.LenteDAO;
+import com.example.mylens.model.Lente;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     //  private List<Lente> lentes;
 
     Button button;
     ListView listView;
+    private Lente lente = null;
+    private LenteDAO dao;
+    private List<Lente> lentes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        final HomeFragment homeFragment = new HomeFragment();
+        listView = findViewById(R.id.list_lentes);
 
-        Bundle bundle = new Bundle();
-        bundle.putString("vaivai", "669");
-
-        homeFragment.setArguments(bundle);
-        fragmentTransaction.add(R.id.fragment, homeFragment).commit();
+        //Recebe a lente selecionada da Informações_lentes.javas
 
 
-//        Toast.makeText(getApplicationContext(), "bbbb " + bundle, Toast.LENGTH_SHORT).show();
+        //
+
+        //Envia infos para HomeFragment.java
+
+
+        //
+
 
         button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
