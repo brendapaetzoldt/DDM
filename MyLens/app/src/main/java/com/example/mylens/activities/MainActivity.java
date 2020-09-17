@@ -10,10 +10,13 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.mylens.R;
 import com.example.mylens.adapter.PagerAdapter;
+import com.example.mylens.fragments.HomeFragment;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
@@ -28,6 +31,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        final HomeFragment homeFragment = new HomeFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("vaivai", "669");
+
+        homeFragment.setArguments(bundle);
+        fragmentTransaction.add(R.id.fragment, homeFragment).commit();
+
+
+//        Toast.makeText(getApplicationContext(), "bbbb " + bundle, Toast.LENGTH_SHORT).show();
 
         button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {

@@ -82,4 +82,6 @@ public class Lente implements Serializable {
                 ", motivoTroca='" + motivoTroca + '\'' +
                 '}';
     }
+
+
 }

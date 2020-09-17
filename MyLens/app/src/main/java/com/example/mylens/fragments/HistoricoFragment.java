@@ -27,6 +27,7 @@ public class HistoricoFragment extends Fragment {
     private Intent intent;
 
 
+
     public HistoricoFragment() {
 
     }
@@ -41,17 +42,28 @@ public class HistoricoFragment extends Fragment {
         @Override
         public void onItemClick(AdapterView parent, View v, int position, long id) {
 
+            String itemValue = String.valueOf(listView.getItemAtPosition(position));
+            intent.putExtra("LENTE_SELECIONADA", itemValue);
+//            Toast.makeText(getContext(), "" + itemValue, Toast.LENGTH_SHORT).show();
+
+
             final Lente lenteAtualizar = lentesFiltradas.get(position);
             intent.putExtra("lente", lenteAtualizar);
+
+
+            Fragment fragment = new Fragment();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("key", lenteAtualizar);
+            fragment.setArguments(bundle);
 
             verifica((int) id);
             listView.invalidateViews();
 
             startActivity(intent);
 
+
         }
     };
-
 
     @Nullable
     @Override
@@ -59,6 +71,7 @@ public class HistoricoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_historico, container, false);
 
         intent = new Intent(getActivity(), Informacos_lentes.class);
+
 
         listView = view.findViewById(R.id.list_lentes);
         dao = new LenteDAO(getActivity());
