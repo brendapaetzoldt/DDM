@@ -27,7 +27,6 @@ public class HistoricoFragment extends Fragment {
     private Intent intent;
 
 
-
     public HistoricoFragment() {
 
     }
@@ -41,11 +40,6 @@ public class HistoricoFragment extends Fragment {
     private AdapterView.OnItemClickListener listClick = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView parent, View v, int position, long id) {
-
-            String itemValue = String.valueOf(listView.getItemAtPosition(position));
-            intent.putExtra("LENTE_SELECIONADA", itemValue);
-//            Toast.makeText(getContext(), "" + itemValue, Toast.LENGTH_SHORT).show();
-
 
             final Lente lenteAtualizar = lentesFiltradas.get(position);
             intent.putExtra("lente", lenteAtualizar);
