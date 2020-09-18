@@ -36,6 +36,7 @@ public class HomeFragment extends Fragment {
 
         dao = new LenteDAO(getActivity());
         lentes = dao.obterTodos();
+        Lente l = new Lente();
 
         LenteListAdapter adapter = new LenteListAdapter(getActivity().getApplicationContext(), 0, lentes);
 
