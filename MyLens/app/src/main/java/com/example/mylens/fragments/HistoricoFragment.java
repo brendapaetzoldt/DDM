@@ -50,12 +50,6 @@ public class HistoricoFragment extends Fragment {
             final Lente lenteAtualizar = lentesFiltradas.get(position);
             intent.putExtra("lente", lenteAtualizar);
 
-
-            Fragment fragment = new Fragment();
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("key", lenteAtualizar);
-            fragment.setArguments(bundle);
-
             verifica((int) id);
             listView.invalidateViews();
 
