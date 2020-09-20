@@ -24,6 +24,7 @@ public class Informacos_lentes extends AppCompatActivity {
     Button button_cancelar, btn_excluir, btn_cadastrar;
     private LenteDAO dao;
     private List<Lente> lentes;
+    private List<LenteUsada> lentesUsar = new ArrayList<>();
     private List<Lente> lentesFiltradas = new ArrayList<>();
     EditText edt_marca;
     EditText edt_grauod;
@@ -78,15 +79,15 @@ public class Informacos_lentes extends AppCompatActivity {
     }
 
     public void Usar(View view) {
-        LenteUsada lente = new LenteUsada();
-        lente.setId(Integer.parseInt(idusar.toString()));
-        lente.setMarca(edt_marca.getText().toString());
-        lente.setGrauOE(edt_grauoe.getText().toString());
-        lente.setGrauOD(edt_grauod.getText().toString());
-        lente.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
-        lente.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
-        lente.setMotivoTroca(edt_motivo_troca.getText().toString());
-        long id = dao.usar(lente);
+        LenteUsada lenteUsada = new LenteUsada();
+        lenteUsada.setId(Integer.parseInt(idusar.toString()));
+        lenteUsada.setMarca(edt_marca.getText().toString());
+        lenteUsada.setGrauOE(edt_grauoe.getText().toString());
+        lenteUsada.setGrauOD(edt_grauod.getText().toString());
+        lenteUsada.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
+        lenteUsada.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
+        lenteUsada.setMotivoTroca(edt_motivo_troca.getText().toString());
+        long id = dao.usar(lenteUsada);
         Toast.makeText(this, "Usar com sucesso", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
         startActivity(intent);
@@ -94,7 +95,6 @@ public class Informacos_lentes extends AppCompatActivity {
 
 
     public void Alterar(View view) {
-
         if (lente == null) {
             lente = new Lente();
             lente.setMarca(edt_marca.getText().toString());
@@ -126,6 +126,15 @@ public class Informacos_lentes extends AppCompatActivity {
         lentes.remove(lente);
         dao.excluir(lente);
         Toast.makeText(this, "Excluído com sucesso", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void ExcluirUsada() {
+        lentesFiltradas.remove(lenteUsada);
+        dao.excluirUsada(lenteUsada);
+        Toast.makeText(this, "Lente usada excluída com sucesso", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
         startActivity(intent);
 

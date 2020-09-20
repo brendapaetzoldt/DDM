@@ -72,6 +72,12 @@ public class LenteDAO {
 
     }
 
+    public void excluirUsada(LenteUsada l) {
+        banco.delete("usar", "id=?", new String[]{l.getId() + ""});
+
+
+    }
+
 
     public void atualizar(Lente lente) {
         ContentValues values = new ContentValues();
