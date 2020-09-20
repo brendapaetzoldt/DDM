@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class Conexao extends SQLiteOpenHelper {
 
     private static final String name = "banco.db";
-    private static final int version = 2;
+    private static final int version = 3;
     private static final String TABELA = "lente";
     private static final String TABELA2 = "usar";
 
@@ -22,7 +22,7 @@ public class Conexao extends SQLiteOpenHelper {
         db.execSQL("create table lente(id integer primary key autoincrement, " +
                 "marca varchar(30), grauOD varchar(5), grauOE varchar(5), diasValidade integer, diasDuracao integer, motivoTroca varchar (50))");
         db.execSQL("create table usar(id integer , " +
-                "marca varchar(30), grauOD varchar(5), grauOE varchar(5), diasValidade integer, diasDuracao integer, motivoTroca varchar (50))");
+                "marca varchar(30), grauOD varchar(5), grauOE varchar(5), diasValidade integer, diasDuracao integer, motivoTroca varchar (50), dataCountdown TIMESTAMP DEFAULT CURRENT_TIMESTAMP)");
     }
 
     @Override

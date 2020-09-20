@@ -16,7 +16,9 @@ import com.example.mylens.fragments.HistoricoFragment;
 import com.example.mylens.model.Lente;
 import com.example.mylens.model.LenteUsada;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Informacos_lentes extends AppCompatActivity {
@@ -78,20 +80,7 @@ public class Informacos_lentes extends AppCompatActivity {
 
     }
 
-    public void Usar(View view) {
-        LenteUsada lenteUsada = new LenteUsada();
-        lenteUsada.setId(Integer.parseInt(idusar.toString()));
-        lenteUsada.setMarca(edt_marca.getText().toString());
-        lenteUsada.setGrauOE(edt_grauoe.getText().toString());
-        lenteUsada.setGrauOD(edt_grauod.getText().toString());
-        lenteUsada.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
-        lenteUsada.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
-        lenteUsada.setMotivoTroca(edt_motivo_troca.getText().toString());
-        long id = dao.usar(lenteUsada);
-        Toast.makeText(this, "Usar com sucesso", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
-        startActivity(intent);
-    }
+    SimpleDateFormat formataData = new SimpleDateFormat("dd-MM-yyyy");
 
 
     public void Alterar(View view) {
@@ -131,19 +120,29 @@ public class Informacos_lentes extends AppCompatActivity {
 
     }
 
-    public void ExcluirUsada() {
-        lentesFiltradas.remove(lenteUsada);
-        dao.excluirUsada(lenteUsada);
-        Toast.makeText(this, "Lente usada excluída com sucesso", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
-        startActivity(intent);
-
-    }
-
 
     public void retorna(View view) {
         Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    Date data = new Date();
+    String dataFormatada = formataData.format(data);
+
+    public void Usar(View view) {
+        LenteUsada lenteUsada = new LenteUsada();
+        lenteUsada.setId(Integer.parseInt(idusar.toString()));
+        lenteUsada.setMarca(edt_marca.getText().toString());
+        lenteUsada.setGrauOE(edt_grauoe.getText().toString());
+        lenteUsada.setGrauOD(edt_grauod.getText().toString());
+        lenteUsada.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
+        lenteUsada.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
+        lenteUsada.setMotivoTroca(edt_motivo_troca.getText().toString());
+        lenteUsada.setDataCountdown(data);
+        long id = dao.usar(lenteUsada);
+        Toast.makeText(this, "Usar com sucesso", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
+        startActivity(intent);
     }
 }

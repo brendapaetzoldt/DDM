@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.mylens.model.Lente;
 import com.example.mylens.model.LenteUsada;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +31,7 @@ public class LenteDAO {
         values.put("diasValidade", lenteUsada.getDiasValidade());
         values.put("diasDuracao", lenteUsada.getDiasDuracao());
         values.put("motivoTroca", lenteUsada.getMotivoTroca());
+        values.put("dataCountdown", "time('now')");
 
         return banco.insert("usar", null, values);
     }
@@ -72,11 +74,6 @@ public class LenteDAO {
 
     }
 
-    public void excluirUsada(LenteUsada l) {
-        banco.delete("usar", "id=?", new String[]{l.getId() + ""});
-
-
-    }
 
 
     public void atualizar(Lente lente) {
@@ -92,7 +89,7 @@ public class LenteDAO {
 
     public List<LenteUsada> ObterUsar() {
         List<LenteUsada> lentesUsar = new ArrayList<>();
-        Cursor cursor = banco.query("usar", new String[]{"id", "marca", "grauOE", "grauOD", "diasValidade", "diasDuracao", "motivoTroca"},
+        Cursor cursor = banco.query("usar", new String[]{"id", "marca", "grauOE", "grauOD", "diasValidade", "diasDuracao", "motivoTroca", "dataCountdown"},
                 null, null, null, null, null);
         while (cursor.moveToNext()) {
             LenteUsada l = new LenteUsada();
@@ -103,6 +100,7 @@ public class LenteDAO {
             l.setDiasValidade(cursor.getInt(4));
             l.setDiasDuracao(cursor.getInt(5));
             l.setMotivoTroca(cursor.getString(6));
+            l.setDataCountdown(Timestamp.valueOf(cursor.getString(7)));
 
             lentesUsar.add(l);
         }

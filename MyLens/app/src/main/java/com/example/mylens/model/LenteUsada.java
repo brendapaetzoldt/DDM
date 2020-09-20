@@ -1,5 +1,7 @@
 package com.example.mylens.model;
 
+import java.util.Date;
+
 public class LenteUsada {
     private Integer id;
     private String marca;
@@ -10,6 +12,7 @@ public class LenteUsada {
     //quantos dias realmente durou
     private Integer diasDuracao;
     private String motivoTroca;
+    private Date dataCountdown;
 
 
     public Integer getId() {
@@ -68,6 +71,14 @@ public class LenteUsada {
         this.motivoTroca = motivoTroca;
     }
 
+    public Date getDataCountdown() {
+        return dataCountdown;
+    }
+
+    public void setDataCountdown(Date dataCountdown) {
+        this.dataCountdown = dataCountdown;
+    }
+
     @Override
     public String toString() {
         return "LenteUsada{" +
@@ -78,6 +89,7 @@ public class LenteUsada {
                 ", diasValidade=" + diasValidade +
                 ", diasDuracao=" + diasDuracao +
                 ", motivoTroca='" + motivoTroca + '\'' +
+                ", dataCountdown=" + dataCountdown +
                 '}';
     }
 }
