@@ -141,7 +141,6 @@ public class Informacos_lentes extends AppCompatActivity {
         lenteUsada.setMotivoTroca(edt_motivo_troca.getText().toString());
         lenteUsada.setDataCountdown(dataFormatada);
         long id = dao.usar(lenteUsada);
-        Toast.makeText(this, "Usar com sucesso", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
         startActivity(intent);
     }
