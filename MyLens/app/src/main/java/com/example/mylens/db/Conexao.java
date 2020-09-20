@@ -22,7 +22,7 @@ public class Conexao extends SQLiteOpenHelper {
         db.execSQL("create table lente(id integer primary key autoincrement, " +
                 "marca varchar(30), grauOD varchar(5), grauOE varchar(5), diasValidade integer, diasDuracao integer, motivoTroca varchar (50))");
         db.execSQL("create table usar(id integer , " +
-                "marca varchar(30), grauOD varchar(5), grauOE varchar(5), diasValidade integer, diasDuracao integer, motivoTroca varchar (50), dataCountdown TIMESTAMP DEFAULT CURRENT_TIMESTAMP)");
+                "marca varchar(30), grauOD varchar(5), grauOE varchar(5), diasValidade integer, diasDuracao integer, motivoTroca varchar (50), dataCountdown varchar(8))");
     }
 
     @Override

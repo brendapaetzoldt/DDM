@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.mylens.model.Lente;
 import com.example.mylens.model.LenteUsada;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class LenteDAO {
         values.put("diasValidade", lenteUsada.getDiasValidade());
         values.put("diasDuracao", lenteUsada.getDiasDuracao());
         values.put("motivoTroca", lenteUsada.getMotivoTroca());
-        values.put("dataCountdown", "time('now')");
+        values.put("dataCountdown", lenteUsada.getDataCountdown());
 
         return banco.insert("usar", null, values);
     }
@@ -100,7 +99,7 @@ public class LenteDAO {
             l.setDiasValidade(cursor.getInt(4));
             l.setDiasDuracao(cursor.getInt(5));
             l.setMotivoTroca(cursor.getString(6));
-            l.setDataCountdown(Timestamp.valueOf(cursor.getString(7)));
+            l.setDataCountdown(cursor.getString(7));
 
             lentesUsar.add(l);
         }

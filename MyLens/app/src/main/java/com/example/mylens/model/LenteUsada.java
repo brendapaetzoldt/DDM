@@ -1,6 +1,5 @@
 package com.example.mylens.model;
 
-import java.util.Date;
 
 public class LenteUsada {
     private Integer id;
@@ -12,7 +11,7 @@ public class LenteUsada {
     //quantos dias realmente durou
     private Integer diasDuracao;
     private String motivoTroca;
-    private Date dataCountdown;
+    private String dataCountdown;
 
 
     public Integer getId() {
@@ -71,11 +70,11 @@ public class LenteUsada {
         this.motivoTroca = motivoTroca;
     }
 
-    public Date getDataCountdown() {
+    public String getDataCountdown() {
         return dataCountdown;
     }
 
-    public void setDataCountdown(Date dataCountdown) {
+    public void setDataCountdown(String dataCountdown) {
         this.dataCountdown = dataCountdown;
     }
 

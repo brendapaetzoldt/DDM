@@ -80,7 +80,6 @@ public class Informacos_lentes extends AppCompatActivity {
 
     }
 
-    SimpleDateFormat formataData = new SimpleDateFormat("dd-MM-yyyy");
 
 
     public void Alterar(View view) {
@@ -127,6 +126,7 @@ public class Informacos_lentes extends AppCompatActivity {
         finish();
     }
 
+    SimpleDateFormat formataData = new SimpleDateFormat("dd-MM-yyyy");
     Date data = new Date();
     String dataFormatada = formataData.format(data);
 
@@ -139,7 +139,7 @@ public class Informacos_lentes extends AppCompatActivity {
         lenteUsada.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
         lenteUsada.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
         lenteUsada.setMotivoTroca(edt_motivo_troca.getText().toString());
-        lenteUsada.setDataCountdown(data);
+        lenteUsada.setDataCountdown(dataFormatada);
         long id = dao.usar(lenteUsada);
         Toast.makeText(this, "Usar com sucesso", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
