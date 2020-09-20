@@ -170,6 +170,14 @@
                 android:onClick="retorna"
                 android:text="Cancelar" />
 
+            <Button
+                android:id="@+id/btn_usar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:onClick="Usar"
+                android:text="Usar" />
+
         </LinearLayout>
 
     </LinearLayout>

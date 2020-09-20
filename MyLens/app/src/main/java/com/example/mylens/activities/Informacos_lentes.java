@@ -14,6 +14,7 @@ import com.example.mylens.R;
 import com.example.mylens.db.LenteDAO;
 import com.example.mylens.fragments.HistoricoFragment;
 import com.example.mylens.model.Lente;
+import com.example.mylens.model.LenteUsada;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +35,10 @@ public class Informacos_lentes extends AppCompatActivity {
     EditText edt_motivo_troca;
     private HistoricoFragment hf;
     private Lente lente = null;
+    private LenteUsada lenteUsada = null;
     int defaultValue = -1;
     private ListView listView;
+    private Integer idusar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +66,7 @@ public class Informacos_lentes extends AppCompatActivity {
         edt_motivo_troca = findViewById(R.id.edt_motivo_troca);
 
 
+        idusar = lente.getId();
         edt_marca.setText(lente.getMarca());
         edt_grauod.setText(lente.getGrauOD());
         edt_grauoe.setText(lente.getGrauOE());
@@ -71,6 +75,21 @@ public class Informacos_lentes extends AppCompatActivity {
         edt_motivo_troca.setText(lente.getMotivoTroca());
 
 
+    }
+
+    public void Usar(View view) {
+        LenteUsada lente = new LenteUsada();
+        lente.setId(Integer.parseInt(idusar.toString()));
+        lente.setMarca(edt_marca.getText().toString());
+        lente.setGrauOE(edt_grauoe.getText().toString());
+        lente.setGrauOD(edt_grauod.getText().toString());
+        lente.setDiasValidade(Integer.parseInt(edt_dias_validade.getText().toString()));
+        lente.setDiasDuracao(Integer.parseInt(edt_dias_duracao.getText().toString()));
+        lente.setMotivoTroca(edt_motivo_troca.getText().toString());
+        long id = dao.usar(lente);
+        Toast.makeText(this, "Usar com sucesso", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
+        startActivity(intent);
     }
 
 

@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private Lente lente = null;
     private LenteDAO dao;
     private List<Lente> lentes;
+    List<Lente> lentesUsar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +38,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listView = findViewById(R.id.list_lentes);
-
-        //Recebe a lente selecionada da Informações_lentes.javas
-
-
-        //
-
-        //Envia infos para HomeFragment.java
-
-
-        //
-
 
         button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         // getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new HomeFragment()).commit();
 

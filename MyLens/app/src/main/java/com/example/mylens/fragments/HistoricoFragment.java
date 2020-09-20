@@ -34,6 +34,7 @@ public class HistoricoFragment extends Fragment {
 
     private LenteDAO dao;
     private List<Lente> lentes;
+
     private List<Lente> lentesFiltradas = new ArrayList<>();
 
 
@@ -64,6 +65,8 @@ public class HistoricoFragment extends Fragment {
         listView = view.findViewById(R.id.list_lentes);
         dao = new LenteDAO(getActivity());
         lentes = dao.obterTodos();
+
+
         lentesFiltradas.addAll(lentes);
 
         LenteListAdapter adapter = new LenteListAdapter(getActivity().getApplicationContext(), 0, lentes);
