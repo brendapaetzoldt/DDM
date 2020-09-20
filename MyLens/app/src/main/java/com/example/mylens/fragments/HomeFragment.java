@@ -1,12 +1,13 @@
 package com.example.mylens.fragments;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,17 +17,15 @@ import com.example.mylens.R;
 import com.example.mylens.db.LenteDAO;
 import com.example.mylens.model.LenteUsada;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class HomeFragment extends Fragment {
 
     private LenteDAO dao;
     private List<LenteUsada> lentesUsar;
     private LenteUsada item;
+    private EditText txt_oe_dias_restantes, txt_od_dias_restantes;
+    private String teste;
 
 
     public HomeFragment() {
@@ -38,6 +37,9 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home, container, false);
 
+        final TextView txt_oe_dias_restantes = view.findViewById(R.id.txt_oe_dias_restantes);
+        final TextView txt_od_dias_restantes = view.findViewById(R.id.txt_od_dias_restantes);
+
         dao = new LenteDAO(getActivity());
         lentesUsar = dao.ObterUsar();
 
@@ -46,19 +48,22 @@ public class HomeFragment extends Fragment {
             item = lentesUsar.get(lentesUsar.size() - 1);
         }
 
-        String lenteDias = String.valueOf(item.getDiasValidade());
-
-        SimpleDateFormat formataData = new SimpleDateFormat("dd-MM-yyyy");
-        Date data = new Date();
-        String dataFormatada = formataData.format(data);
-        Toast.makeText(getContext(), "" + dataFormatada, Toast.LENGTH_SHORT).show();
+        int lenteDias = item.getDiasValidade();
 
 
-        TextView txt_oe_dias_restantes = view.findViewById(R.id.txt_oe_dias_restantes);
-        txt_oe_dias_restantes.setText(lenteDias);
+        new CountDownTimer(lenteDias * 86400000, 86400000) {
 
-        TextView txt_od_dias_restantes = view.findViewById(R.id.txt_od_dias_restantes);
-        txt_od_dias_restantes.setText(lenteDias);
+            public void onTick(long millisUntilFinished) {
+                txt_oe_dias_restantes.setText("" + millisUntilFinished / 86400000);
+                txt_od_dias_restantes.setText("" + millisUntilFinished / 86400000);
+
+
+            }
+
+            public void onFinish() {
+                txt_oe_dias_restantes.setText("0");
+            }
+        }.start();
 
 
         return view;
@@ -71,13 +76,6 @@ public class HomeFragment extends Fragment {
         imageView.setImageResource(R.drawable.estojo);
 
 
-    }
-
-    public Date data(int dia) {
-        Locale ml = Locale.getDefault();
-        Calendar dataAtual = Calendar.getInstance(ml);
-        dataAtual.add(Calendar.DATE, dia);
-        return dataAtual.getTime();
     }
 
 
