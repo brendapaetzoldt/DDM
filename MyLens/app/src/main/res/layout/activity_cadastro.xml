@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="8dp"
     tools:context=".activities.Cadastro">
 
 
@@ -11,6 +12,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#F2F8FB"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,11 +25,15 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -154,6 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
+                android:background="@color/cardview_light_background"
                 android:onClick="salvar"
                 android:text="Cadastrar" />
 
@@ -162,6 +169,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
+                android:layout_marginTop="8dp"
+                android:background="@color/cardview_light_background"
                 android:onClick="retorna"
                 android:text="Cancelar" />
         </LinearLayout>
