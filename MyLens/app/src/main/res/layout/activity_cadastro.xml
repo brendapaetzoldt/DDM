@@ -72,13 +72,14 @@
                             android:id="@+id/textView7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:text="Grau olho esquerdo" />
 
                         <EditText
                             android:id="@+id/edt_grauoe"
-                            android:layout_width="wrap_content"
+                            android:layout_width="187dp"
                             android:layout_height="wrap_content"
-                            android:ems="10"
+                            android:gravity="center"
                             android:inputType="textPersonName" />
                     </LinearLayout>
 
@@ -91,13 +92,15 @@
                             android:id="@+id/textView8"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:text="Grau olho direito" />
 
                         <EditText
                             android:id="@+id/edt_grauod"
-                            android:layout_width="match_parent"
+                            android:layout_width="187dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:gravity="center"
                             android:inputType="textPersonName" />
 
                     </LinearLayout>
