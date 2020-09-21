@@ -1,5 +1,6 @@
 package com.example.mylens.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mylens.R;
@@ -111,11 +113,21 @@ public class Informacos_lentes extends AppCompatActivity {
     }
 
     public void Excluir(View view) {
-        lentes.remove(lente);
-        dao.excluir(lente);
-        Toast.makeText(this, "Excluído com sucesso", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
-        startActivity(intent);
+
+        AlertDialog dialog = new AlertDialog.Builder(this).setTitle("Atenção").setMessage("Deseja realmente excluir?").setNegativeButton("Não", null)
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        lentes.remove(lente);
+                        dao.excluir(lente);
+                        Toast.makeText(getApplicationContext(), "Excluído com sucesso", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Informacos_lentes.this, MainActivity.class);
+                        startActivity(intent);
+
+                    }
+                }).create();
+        dialog.show();
 
     }
 
