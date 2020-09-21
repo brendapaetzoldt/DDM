@@ -51,7 +51,6 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="22"
                         android:textAlignment="center"
                         android:textSize="70dp" />
 
@@ -84,7 +83,6 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="22"
                         android:textAlignment="center"
                         android:textSize="70dp" />
 

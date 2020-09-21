@@ -48,10 +48,12 @@ public class HomeFragment extends Fragment {
             item = lentesUsar.get(lentesUsar.size() - 1);
         }
 
-        int lenteDias = item.getDiasValidade();
+        String lenteDias = item.getDiasValidade().toString();
+        long milliseconds = Long.parseLong(lenteDias) * 24 * 60 * 60 * 1000;
+//        Toast.makeText(getContext(), ""+milliseconds, Toast.LENGTH_SHORT).show();
 
 
-        new CountDownTimer(lenteDias * 86400000, 86400000) {
+        new CountDownTimer(milliseconds, 86400000) {
 
             public void onTick(long millisUntilFinished) {
                 txt_oe_dias_restantes.setText("" + millisUntilFinished / 86400000);
