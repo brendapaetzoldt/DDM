@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -121,30 +122,30 @@
 
     </FrameLayout>
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_marginTop="120dp"-->
-<!--        android:orientation="vertical">-->
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_marginTop="120dp"-->
+    <!--        android:orientation="vertical">-->
 
-<!--        <Button-->
-<!--            android:id="@+id/btn_cadastro_lente"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Cadastrar nova lente" />-->
+    <!--        <Button-->
+    <!--            android:id="@+id/btn_cadastro_lente"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Cadastrar nova lente" />-->
 
-<!--        <Button-->
-<!--            android:id="@+id/btn_alterar_atual"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Editar lente atual" />-->
+    <!--        <Button-->
+    <!--            android:id="@+id/btn_alterar_atual"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Editar lente atual" />-->
 
-<!--        <Button-->
-<!--            android:id="@+id/btn_historico"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Histórico de lentes" />-->
-<!--    </LinearLayout>-->
+    <!--        <Button-->
+    <!--            android:id="@+id/btn_historico"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Histórico de lentes" />-->
+    <!--    </LinearLayout>-->
 
 
 </LinearLayout>

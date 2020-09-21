@@ -5,7 +5,6 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,8 +23,6 @@ public class HomeFragment extends Fragment {
     private LenteDAO dao;
     private List<LenteUsada> lentesUsar;
     private LenteUsada item;
-    private EditText txt_oe_dias_restantes, txt_od_dias_restantes;
-    private String teste;
 
 
     public HomeFragment() {

@@ -2,9 +2,6 @@ package com.example.mylens.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -53,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tabBar);
         TabItem tabHome = findViewById(R.id.home);
-//        TabItem tabCadastro = findViewById(R.id.cadastro);
         TabItem tabHistorico = findViewById(R.id.historico);
 
         final ViewPager viewPager = findViewById(R.id.viewPager);
@@ -82,20 +78,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater i = getMenuInflater();
-        i.inflate(R.menu.menu_principal, menu);
-        return true;
-    }
-
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater i = getMenuInflater();
-        i.inflate(R.menu.menu_contexto, menu);
     }
 
 
